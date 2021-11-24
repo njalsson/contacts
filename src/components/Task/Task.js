@@ -1,20 +1,22 @@
-/* eslint-disable import/extensions */
+/* eslint-disable react/jsx-indent */
+/* eslint-disable indent */
 /* eslint-disable import/no-unresolved */
+/* eslint-disable react/jsx-wrap-multilines */
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
-import { Text, View } from 'react-native';
+import { FlatList, Text } from 'react-native';
+import { tasks } from './data.json';
 import style from './style';
-// import { TaskData } from './taskData';
-// import { tasks } from './data.json';
-import {Fokk} from './Fokk.js';
 
 function Task() {
     return (
-        <View style={style.task}>
-            <Fokk/>
-            <Text style={style.task}>prump</Text>
-        </View>
+        <FlatList
+          data={tasks}
+          keyExtractor={({ id }) => id}
+          renderItem={({ item }) => (
+            <Text style={style.task}>{`${item.id}. ${item.name} \n \t ${item.description}`}</Text>
+          )}
+        />
     );
 }
-
 export default Task;
