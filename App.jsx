@@ -19,7 +19,6 @@ function App() {
             <Text>TASKS:</Text>
             {/* <Text>
                 Open up App.js to start working on your app my arse!
-                
                 <Task />
             </Text> */}
             <Fokk />
