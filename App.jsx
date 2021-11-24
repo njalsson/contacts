@@ -1,7 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-// import Task from './src/components/Task';
+import data from './src/resources/data.json';
+import Boards from './src/components/Boards/Boards';
 
 const styles = StyleSheet.create({
     container: {
@@ -9,14 +10,17 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
+        padding: 0,
     },
 });
-
 export default function App() {
+    const [boards, setBoards] = useState(data.boards);
+    const [lists, setLists] = useState(data.lists);
+    const [tasks, setTasks] = useState(data.tasks);
+    console.log(boards);
     return (
         <View style={styles.container}>
-            <Text>Open up App.js to start working on your app my!
-            </Text>
+            <Boards boards={boards} setBoards={setBoards} />
             <StatusBar />
         </View>
     );
