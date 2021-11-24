@@ -16,11 +16,13 @@ const styles = StyleSheet.create({
 function App() {
     return (
         <View style={styles.container}>
-            <Text>
+            <Text>TASKS:</Text>
+            {/* <Text>
                 Open up App.js to start working on your app my arse!
-                <Fokk />
-                {/* <Task /> */}
-            </Text>
+                
+                <Task />
+            </Text> */}
+            <Fokk />
             <StatusBar />
         </View>
     );

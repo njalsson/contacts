@@ -6,6 +6,7 @@
 import React from 'react';
 import { FlatList, Text } from 'react-native';
 import { tasks } from './data.json';
+import style from './style';
 
 function Fokk() {
     // const [isLoading, setLoading] = useState(true);
@@ -25,7 +26,7 @@ function Fokk() {
           data={tasks}
           keyExtractor={({ id }) => id}
           renderItem={({ item }) => (
-            <Text>{`${item.id}. ${item.name}`}</Text>
+            <Text style={style.task}>{`${item.id}. ${item.name}`}</Text>
           )}
       />
     );
