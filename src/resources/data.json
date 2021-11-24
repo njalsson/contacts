@@ -13,6 +13,7 @@
         {
             "id": 3,
             "name": "Bucket list",
+            "description": "Some very long and descriptive description for testing the description",
             "thumbnailPhoto": "https://images-na.ssl-images-amazon.com/images/I/61fq9A8jEGL._SL1500_.jpg"
         }
     ],
