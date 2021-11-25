@@ -1,12 +1,13 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-    task: {
+    List: {
         borderStyle: 'solid',
         borderRadius: 10,
         borderColor: 'red',
-        backgroundColor: 'blue',
+        backgroundColor: 'yellow',
         padding: 5,
-        color: '#ff0000',
+        marginTop: 10,
+        color: 'green',
     },
 });

@@ -25,12 +25,13 @@ export default function App() {
 
     return (
         <View style={styles.container}>
-            <Task listId={3} taskdata={tasks} />
+            {/* <Task listId={3} taskdata={tasks} /> */}
             {showBoard
                 ? (
                     <ListsView
                         board={currentBoard}
                         setShowBoard={setShowBoard}
+                        data={data}
                     />
                 )
 
