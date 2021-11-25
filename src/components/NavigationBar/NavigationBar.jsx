@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import styles from './styles';
 
-export default function NavigationBar({ currentPage, goBack }) {
+export default function NavigationBar({ currentPage, children }) {
     return (
 
         <SafeAreaView style={styles.safeArea}>
@@ -12,6 +12,7 @@ export default function NavigationBar({ currentPage, goBack }) {
                 <Text style={styles.navigation}>
                     {currentPage}
                 </Text>
+                {children}
             </View>
         </SafeAreaView>
     );

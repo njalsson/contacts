@@ -6,16 +6,23 @@ const { width: winWidth } = Dimensions.get('window');
 
 export default StyleSheet.create({
     container: {
+        justifyContent: 'space-between',
         width: winWidth,
         height: 50,
         backgroundColor: darkBlue,
         paddingBottom: 5,
+        flexDirection: 'row',
+        paddingRight: 20,
+        paddingLeft: 20,
+        alignItems: 'center',
     },
     safeArea: {
+        flexDirection: 'row',
         backgroundColor: darkBlue,
+        width: '100%',
     },
     navigation: {
-        ...fonts.title,
+        ...fonts.h1,
         alignSelf: 'center',
     },
 });
