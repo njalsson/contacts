@@ -14,14 +14,15 @@ export default function ListsView({
             <NavigationBar
                 currentPage={board.name}
             >
-                <Button color="white" title="back" onPress={() => setShowBoard(false)} />
+                <View style={styles.backbutton}>
+                    <Button color="white" title=" Back " onPress={() => setShowBoard(false)} />
+                </View>
             </NavigationBar>
             <ScrollView>
                 <View style={styles.container}>
                     {test.map((lis) => (
                         <List list={lis} listdata={data} key={lis.id} />
                     ))}
-                    {/* // <List boardId={board.id} listdata={data} /> */}
                 </View>
             </ScrollView>
         </>
