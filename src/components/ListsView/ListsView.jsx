@@ -22,7 +22,7 @@ export default function ListsView({
                     <>
                         <Text style={styles.listHeader}>
                             {lis.id}
-                            .
+                            .&nbsp;
                             {lis.name}
 
                         </Text>

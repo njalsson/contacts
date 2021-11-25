@@ -1,6 +1,6 @@
 import React from 'react';
 import { FlatList } from 'react-native';
-// import style from './Style';
+import styles from './Style';
 import Task from '../Task/Task';
 
 function List({ list, listdata }) {
@@ -12,7 +12,8 @@ function List({ list, listdata }) {
                 <Task
                     listId={item.id}
                     taskdata={listdata.tasks}
-                    style={{ backgroundColor: list.color }}
+                    style={styles.list}
+                    // style={{ backgroundColor: list.color }}
                 />
                 // <Text style={style.list}>{`${item.id}. ${item.name} \n `}</Text>
             )}
