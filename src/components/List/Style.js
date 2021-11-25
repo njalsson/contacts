@@ -10,4 +10,5 @@ export default StyleSheet.create({
         marginTop: 10,
         color: 'green',
     },
+
 });
