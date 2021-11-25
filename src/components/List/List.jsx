@@ -1,5 +1,7 @@
 import React from 'react';
-import { FlatList, Text } from 'react-native';
+import { View, Text } from 'react-native';
+// import { FlatList, Text } from 'react-native';
+
 import styles from './Style';
 import Task from '../Task/Task';
 
@@ -12,7 +14,13 @@ function List({ list, listdata }) {
                 {list.name}
 
             </Text>
-            <FlatList
+            <View style={{ backgroundColor: list.color, borderRadius: '10px' }}>
+                {listdata.lists.filter((listo) => listo.id === list.id).map((lis) => (
+                    <Task listId={lis.id} taskdata={listdata.tasks} key={lis.id} />
+                ))}
+            </View>
+
+            {/* <FlatList
                 style={{ backgroundColor: list.color, borderRadius: '10px' }}
                 data={listdata.lists.filter((l) => l.id === list.id)}
                 keyExtractor={({ id }) => id}
@@ -23,7 +31,7 @@ function List({ list, listdata }) {
                     />
                     // <Text style={style.list}>{`${item.id}. ${item.name} \n `}</Text>
                 )}
-            />
+            /> */}
 
         </>
     );

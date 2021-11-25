@@ -8,11 +8,13 @@ import EditBoard from '../EditBoard/EditBoard';
 import EditButtonIcon from '../EditButtonIcon/EditButtonIcon';
 
 export default function Board({
-    board, setBoards, boards, setCurrentBoard, setShowBoard
+    board, setBoards, boards, setCurrentBoard, setShowBoard,
 }) {
-    const {id, description, name, thumbnailPhoto } = board;
+    const {
+        id, description, name, thumbnailPhoto,
+    } = board;
     const [edit, setEdit] = useState(false);
-    
+
     return (
         <TouchableOpacity
             onPress={() => {
