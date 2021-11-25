@@ -24,7 +24,12 @@ module.exports = {
                 namedComponents: 'function-declaration',
             },
         ],
+        'import/no-unresolved': [
+            2,
+            { caseSensitive: false },
+        ],
         indent: [2, 4],
         'react/jsx-indent': [2, 4],
+        'react/jsx-indent-props': [2, 4],
     },
 };

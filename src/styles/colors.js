@@ -1,6 +1,5 @@
-export const periwinkle = '#CAE5FF';
-export const freshAir = '#ACEDFF';
-export const jordyBlue = '#89BBFE';
-export const silverLakeBlue = '#6F8AB7';
-export const graniteGray = '#615D6C';
-export const darkerBlue = '#42638E';
+export const darkBlue = '#0081AF';
+export const lighterBlue = '#00ABE7';
+export const lightBlue = '#ADE9FF';
+export const successGreen = '#7BD389';
+export const errorRed = '#FF5964';
