@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Button } from 'react-native';
 
 import NavigationBar from '../NavigationBar/NavigationBar';
 import styles from './style';
@@ -17,17 +17,8 @@ export default function ListsView({
                 <Button color="white" title="back" onPress={() => setShowBoard(false)} />
             </NavigationBar>
             <View style={styles.container}>
-                <Text>Here are the lists</Text>
                 {test.map((lis) => (
-                    <>
-                        {/* <Text style={styles.listHeader}>
-                            {lis.id}
-                            .&nbsp;
-                            {lis.name}
-
-                        </Text> */}
-                        <List list={lis} listdata={data} />
-                    </>
+                    <List list={lis} listdata={data} key={lis.id} />
                 ))}
                 {/* // <List boardId={board.id} listdata={data} /> */}
             </View>
