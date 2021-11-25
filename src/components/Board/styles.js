@@ -33,14 +33,10 @@ export default StyleSheet.create({
         paddingRight: 20,
     },
     button: {
-        width: 60,
-        height: 30,
-        backgroundColor: darkBlue,
         position: 'absolute',
         bottom: 10,
         right: 20,
-        borderRadius: 5,
-        justifyContent: 'center',
-        alignItems: 'center',
+        elevation: 5,
+        zIndex: 4,
     },
 });
