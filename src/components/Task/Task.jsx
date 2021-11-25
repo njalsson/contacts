@@ -8,10 +8,10 @@ function Task({ listId, taskdata }) {
     return (
         <View>
             {tasksinlist.map((t) => {
-                if (!t.isFinished) {
-                    return (<Text key={t.id} style={styles.task}>{` ${t.id}. ${t.name} \n \t ${t.description} \n`}</Text>);
+                if (t.isFinished || t.listId === 5) {
+                    return (<Text key={t.id} style={styles.finishedtask}>{` ${t.id}. ${t.name} \n \t ${t.description} \n`}</Text>);
                 }
-                return (<Text key={t.id} style={styles.finishedtask}>{` ${t.id}. ${t.name} \n \t ${t.description} \n`}</Text>);
+                return (<Text key={t.id} style={styles.task}>{` ${t.id}. ${t.name} \n \t ${t.description} \n`}</Text>);
             })}
         </View>
         // <FlatList
