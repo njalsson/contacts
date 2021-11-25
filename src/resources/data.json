@@ -21,49 +21,49 @@
         {
             "id": 1,
             "name": "Must see!",
-            "color": "#ffffff",
+            "color": "#bdede0",
             "boardId": 1
         },
         {
             "id": 2,
             "name": "One-day trips!",
-            "color": "#00ff00",
+            "color": "#bbdbd1",
             "boardId": 1
         },
         {
             "id": 3,
             "name": "Backlog",
-            "color": "#dddddd",
+            "color": "#B6B8D6",
             "boardId": 2
         },
         {
             "id": 4,
             "name": "In progress",
-            "color": "#cccccc",
+            "color": "#7E78D2",
             "boardId": 2
         },
         {
             "id": 5,
             "name": "Done",
-            "color": "#555555",
+            "color": "#6F58C9",
             "boardId": 2
         },
         {
             "id": 6,
             "name": "Top 10",
-            "color": "#ff0000",
+            "color": "#F7AF9D",
             "boardId": 3
         },
         {
             "id": 7,
             "name": "Top 10-20",
-            "color": "#0000ff",
+            "color": "#F7E3AF",
             "boardId": 3
         },
         {
             "id": 8,
             "name": "Last",
-            "color": "#ff00ff",
+            "color": "#F3EEC3",
             "boardId": 3
         }
     ],

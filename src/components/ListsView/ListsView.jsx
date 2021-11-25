@@ -1,22 +1,29 @@
 import React from 'react';
-import { View, Text, Button} from 'react-native';
+import { View, Button, ScrollView } from 'react-native';
 
 import NavigationBar from '../NavigationBar/NavigationBar';
 import styles from './style';
+import List from '../List/List';
 
 export default function ListsView({
-    board, setShowBoard
+    board, setShowBoard, data,
 }) {
+    const test = data.lists.filter((list) => list.boardId === board.id);
     return (
         <>
             <NavigationBar
                 currentPage={board.name}
             >
-                <Button color="white" title="back" onPress={() => setShowBoard(false)}/>
+                <Button color="white" title="back" onPress={() => setShowBoard(false)} />
             </NavigationBar>
-            <View style={{flex: 1}}>
-                <Text>Here are the lists</Text>
-            </View>
+            <ScrollView>
+                <View style={styles.container}>
+                    {test.map((lis) => (
+                        <List list={lis} listdata={data} key={lis.id} />
+                    ))}
+                    {/* // <List boardId={board.id} listdata={data} /> */}
+                </View>
+            </ScrollView>
         </>
     );
 }

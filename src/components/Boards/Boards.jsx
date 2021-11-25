@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import Board from '../Board/Board';
 import styles from './style';
 import NavigationBar from '../NavigationBar/NavigationBar';
 import AddButton from '../AddButton/AddButton';
 import AddBoard from '../AddBoard/AddBoard';
 
-export default function Boards({ boards, setBoards, setCurrentBoard, setShowBoard }) {
+export default function Boards({
+    boards, setBoards, setCurrentBoard, setShowBoard,
+}) {
     const [addingBoard, setAddingBoard] = useState(false);
     const [id, setId] = useState(4);
     return (
