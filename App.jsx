@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import data from './src/resources/data.json';
 import Boards from './src/components/Boards/Boards';
 import ListsView from './src/components/ListsView/ListsView';
+import Task from './src/components/Task/Task';
 
 const styles = StyleSheet.create({
     container: {
@@ -24,6 +25,7 @@ export default function App() {
 
     return (
         <View style={styles.container}>
+            <Task listId={3} taskdata={tasks} />
             {showBoard
                 ? (
                     <ListsView
