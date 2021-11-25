@@ -7,9 +7,12 @@ function Task({ listId, taskdata }) {
     const tasksinlist = taskdata.filter((task) => task.listId === listId);
     return (
         <View>
-            {tasksinlist.map((t) => (
-                <Text key={t.id} style={styles.task}>{` ${t.id}. ${t.name} \n \t ${t.description} \n`}</Text>
-            ))}
+            {tasksinlist.map((t) => {
+                if (!t.isFinished) {
+                    return (<Text key={t.id} style={styles.task}>{` ${t.id}. ${t.name} \n \t ${t.description} \n`}</Text>);
+                }
+                return (<Text key={t.id} style={styles.finishedtask}>{` ${t.id}. ${t.name} \n \t ${t.description} \n`}</Text>);
+            })}
         </View>
         // <FlatList
         //     data={taskdata.filter((task) => task.listId === listId)}
