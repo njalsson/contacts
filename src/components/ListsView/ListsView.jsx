@@ -8,6 +8,7 @@ import List from '../List/List';
 export default function ListsView({
     board, setShowBoard, data,
 }) {
+    const test = data.lists.filter((list) => list.boardId === board.id);
     return (
         <>
             <NavigationBar
@@ -17,7 +18,7 @@ export default function ListsView({
             </NavigationBar>
             <View style={styles.container}>
                 <Text>Here are the lists</Text>
-                {data.lists.map((lis) => (<List boardId={lis.boardId} listdata={data} />))}
+                {test.map((lis) => (<List boardId={lis.id} listdata={data} />))}
                 {/* // <List boardId={board.id} listdata={data} /> */}
             </View>
         </>

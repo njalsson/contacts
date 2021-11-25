@@ -8,7 +8,7 @@ function List({ boardId, listdata }) {
     console.log(test2);
     return (
         <FlatList
-            data={listdata.lists.filter((list) => list.boardId === boardId)}
+            data={listdata.lists.filter((list) => list.id === boardId)}
             keyExtractor={({ id }) => id}
             renderItem={({ item }) => (
                 <Task listId={item.id} taskdata={listdata.tasks} style={style.List} />
