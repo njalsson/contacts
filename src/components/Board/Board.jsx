@@ -3,6 +3,7 @@ import { View, Text, TouchableHighlight } from 'react-native';
 import styles from './styles';
 import ThumbnailPhoto from '../ThumbnailPhoto/ThumbnailPhoto';
 import EditBoard from '../EditBoard/EditBoard';
+import EditButtonIcon from '../EditButtonIcon/EditButtonIcon';
 
 export default function Board({
     id, name, thumbnailPhoto, description, setBoards, boards
@@ -18,14 +19,11 @@ export default function Board({
                 <Text style={styles.description}>{description}</Text>
             </View>
             <ThumbnailPhoto style={styles.image} image={thumbnailPhoto} />
-            <TouchableHighlight
-                style={styles.button}
-                activeOpacity={0.6}
-                onPress={() => setEdit(!edit)}
-                underlayColor="#DDDDDD"
-            >
-                <Text>Edit</Text>
-            </TouchableHighlight>
+            <View style={styles.button}>
+                <EditButtonIcon
+                    onPress={() => setEdit(!edit)}
+                />
+            </View>
             {edit
                 ? (
                     <EditBoard
