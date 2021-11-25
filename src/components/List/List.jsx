@@ -12,8 +12,8 @@ function List({ list, listdata }) {
                 <Task
                     listId={item.id}
                     taskdata={listdata.tasks}
-                    style={styles.list}
-                    // style={{ backgroundColor: list.color }}
+                    // style={styles.list}
+                    style={{ backgroundColor: list.color }}
                 />
                 // <Text style={style.list}>{`${item.id}. ${item.name} \n `}</Text>
             )}

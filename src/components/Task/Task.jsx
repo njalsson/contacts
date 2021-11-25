@@ -10,7 +10,7 @@ function Task({ listId, taskdata }) {
             data={taskdata.filter((task) => task.listId === listId)}
             keyExtractor={({ id }) => id}
             renderItem={({ item }) => (
-                <Text>{`${item.id}. ${item.name} \n \t ${item.description} `}</Text>
+                <Text>{`\n ${item.id}. ${item.name} \n \t ${item.description} `}</Text>
             )}
         />
     );
