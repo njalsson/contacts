@@ -20,12 +20,12 @@ export default function ListsView({
                 <Text>Here are the lists</Text>
                 {test.map((lis) => (
                     <>
-                        <Text style={styles.listHeader}>
+                        {/* <Text style={styles.listHeader}>
                             {lis.id}
                             .&nbsp;
                             {lis.name}
 
-                        </Text>
+                        </Text> */}
                         <List list={lis} listdata={data} />
                     </>
                 ))}

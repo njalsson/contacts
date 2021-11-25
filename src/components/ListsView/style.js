@@ -10,7 +10,7 @@ export default StyleSheet.create({
         // borderStyle: 'solid',
         flex: 1,
         padding: 20,
-        justifyContent: 'flex-start',
+        // justifyContent: 'flex-start',
     },
     listHeader: {
         color: 'grey',

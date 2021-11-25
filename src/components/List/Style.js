@@ -2,10 +2,14 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     List: {
-        backgroundColor: 'red',
         padding: 5,
         marginTop: 10,
-        color: 'green',
+    },
+    listHeader: {
+        marginTop: 5,
+        color: 'grey',
+        fontSize: 20,
+        marginBottom: 5,
     },
 
 });
