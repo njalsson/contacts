@@ -6,7 +6,7 @@ import NavigationBar from '../NavigationBar/NavigationBar';
 import AddButton from '../AddButton/AddButton';
 import AddBoard from '../AddBoard/AddBoard';
 
-export default function Boards({ boards, setBoards }) {
+export default function Boards({ boards, setBoards, setCurrentBoard, setShowBoard }) {
     const [addingBoard, setAddingBoard] = useState(false);
     const [id, setId] = useState(4);
     return (
@@ -17,9 +17,11 @@ export default function Boards({ boards, setBoards }) {
                     {boards.map((board) => (
                         <Board
                             boards={boards}
-                            {...board}
+                            board={board}
                             setBoards={setBoards}
                             key={board.id}
+                            setCurrentBoard={setCurrentBoard}
+                            setShowBoard={setShowBoard}
                         />
                     ))}
                 </View>

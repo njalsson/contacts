@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import data from './src/resources/data.json';
 import Boards from './src/components/Boards/Boards';
+import ListsView from './src/components/ListsView/ListsView';
 
 const styles = StyleSheet.create({
     container: {
@@ -17,10 +18,28 @@ export default function App() {
     const [boards, setBoards] = useState(data.boards);
     const [lists, setLists] = useState(data.lists);
     const [tasks, setTasks] = useState(data.tasks);
-    console.log(boards);
+
+    const [currentBoard, setCurrentBoard] = useState();
+    const [showBoard, setShowBoard] = useState(false);
+
     return (
         <View style={styles.container}>
-            <Boards boards={boards} setBoards={setBoards} />
+            {showBoard
+                ? (
+                    <ListsView
+                        board={currentBoard}
+                        setShowBoard={setShowBoard}
+                    />
+                )
+
+                : (
+                    <Boards
+                        boards={boards}
+                        setBoards={setBoards}
+                        setCurrentBoard={setCurrentBoard}
+                        setShowBoard={setShowBoard}
+                    />
+                ) }
             <StatusBar />
         </View>
     );
