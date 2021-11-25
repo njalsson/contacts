@@ -9,7 +9,7 @@ import { FlatList, Text } from 'react-native';
 // import { tasks } from './data.json';
 import style from './style';
 
-function Task({listId, taskdata}) {
+function Task({ listId, taskdata }) {
   const test2 = taskdata.filter((task) => task.listId === listId);
   console.log(test2);
     return (

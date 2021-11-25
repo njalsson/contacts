@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import data from './src/resources/data.json';
 import Boards from './src/components/Boards/Boards';
 import ListsView from './src/components/ListsView/ListsView';
