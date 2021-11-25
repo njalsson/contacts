@@ -46,7 +46,7 @@ export default function BoardModal({
                         style={[styles.button, styles.cancellButton]}
                         onPress={() => setShowModal(!showModal)}
                     >
-                        <Text style={styles.textStyle}>cancell</Text>
+                        <Text style={styles.textStyle}>cancel</Text>
                     </Pressable>
                 </View>
                 {children}
