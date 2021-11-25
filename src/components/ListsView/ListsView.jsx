@@ -18,7 +18,17 @@ export default function ListsView({
             </NavigationBar>
             <View style={styles.container}>
                 <Text>Here are the lists</Text>
-                {test.map((lis) => (<List boardId={lis.id} listdata={data} />))}
+                {test.map((lis) => (
+                    <>
+                        <Text style={styles.listHeader}>
+                            {lis.id}
+                            .
+                            {lis.name}
+
+                        </Text>
+                        <List list={lis} listdata={data} />
+                    </>
+                ))}
                 {/* // <List boardId={board.id} listdata={data} /> */}
             </View>
         </>
