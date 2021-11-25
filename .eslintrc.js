@@ -28,6 +28,7 @@ module.exports = {
             2,
             { caseSensitive: false },
         ],
+        'react/prop-types': 0,
         indent: [2, 4],
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],

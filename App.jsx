@@ -5,7 +5,7 @@ import { StyleSheet, View } from 'react-native';
 import Board from './src/components/Board/Board';
 =======
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import data from './src/resources/data.json';
 import Boards from './src/components/Boards/Boards';
 import ListsView from './src/components/ListsView/ListsView';
