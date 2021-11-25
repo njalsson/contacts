@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 // import { FlatList, Text } from 'react-native';
 
 import styles from './Style';
@@ -12,13 +12,14 @@ function List({ list, listdata }) {
                 {list.id}
                 .&nbsp;
                 {list.name}
-
             </Text>
-            <View style={{ backgroundColor: list.color, borderRadius: '10px' }}>
-                {listdata.lists.filter((listo) => listo.id === list.id).map((lis) => (
-                    <Task listId={lis.id} taskdata={listdata.tasks} key={lis.id} />
-                ))}
-            </View>
+            <ScrollView>
+                <View style={{ backgroundColor: list.color, borderRadius: '10px', padding: 15 }}>
+                    {listdata.lists.filter((listo) => listo.id === list.id).map((lis) => (
+                        <Task listId={lis.id} taskdata={listdata.tasks} key={lis.id} />
+                    ))}
+                </View>
+            </ScrollView>
 
             {/* <FlatList
                 style={{ backgroundColor: list.color, borderRadius: '10px' }}

@@ -6,7 +6,7 @@ export default StyleSheet.create({
         marginTop: 10,
     },
     listHeader: {
-        marginTop: 5,
+        // marginTop: 5,
         color: 'grey',
         fontSize: 20,
         marginBottom: 5,

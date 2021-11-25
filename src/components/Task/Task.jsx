@@ -8,7 +8,7 @@ function Task({ listId, taskdata }) {
     return (
         <View>
             {tasksinlist.map((t) => (
-                <Text key={t.id}>{`\n ${t.id}. ${t.name} \n \t ${t.description} `}</Text>
+                <Text key={t.id}>{` ${t.id}. ${t.name} \n \t ${t.description} `}</Text>
             ))}
         </View>
         // <FlatList
