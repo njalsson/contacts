@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, TouchableHighlight, View } from 'react-native';
-import { FontAwesome5 } from '@expo/vector-icons';
 import { darkBlue } from '../../styles/colors';
+import { Feather } from '@expo/vector-icons';
 
 const styles = StyleSheet.create({
     button: {
@@ -24,10 +24,10 @@ export default function EditButtonIcon({ onPress }) {
             underlayColor="#DDDDDD"
         >
             <View>
-                <FontAwesome5
-                    name="edit"
+                <Feather
+                    name="edit-2"
                     size={20}
-                    color="black"
+                    color="white"
                 />
             </View>
         </TouchableHighlight>

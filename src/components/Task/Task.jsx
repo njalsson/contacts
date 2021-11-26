@@ -7,10 +7,6 @@ function Task({
 }) {
     return (
 
-        
-            
-
-        
         <Text style={styles.task}>{` ${task.id}. ${task.name} \n \t ${task.description} \n`}</Text>
         // <FlatList
         //     data={taskdata.filter((task) => task.listId === listId)}
@@ -19,7 +15,6 @@ function Task({
         //         <Text>{`\n ${item.id}. ${item.name} \n \t ${item.description} `}</Text>
         //     )}
         // />
-
     );
 }
 export default Task;
