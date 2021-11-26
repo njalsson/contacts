@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-import { View, Pressable } from 'react-native';
-
 import ListsModal from '../ListsModal/ListsModal';
 
 export default function AddList({

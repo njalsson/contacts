@@ -21,10 +21,10 @@ const styles = StyleSheet.create({
     },
 });
 
-export default function AddButton({ onPress }) {
+export default function AddButton({ onPress, customStyle}) {
     return (
         <TouchableHighlight
-            style={styles.button}
+            style={[styles.button, customStyle]}
             onPress={onPress}
             activeOpacity={0.6}
             underlayColor="#DDDDDD"

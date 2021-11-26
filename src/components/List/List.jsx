@@ -5,11 +5,15 @@ import styles from './Style';
 import Task from '../Task/Task';
 import EditButtonIcon from '../EditButtonIcon/EditButtonIcon';
 import EditList from '../EditList/EditList';
+import AddButton from '../AddButton/AddButton';
+import AddTask from '../AddTask.jsx/AddTask';
+import { lightBlue } from '../../styles/colors';
 
 function List({
-    list, lists, setLists, tasks, setTasks, editList, setEditList
+    list, lists, setLists, tasks, setTasks,
 }) {
     const [edit, setEdit] = useState(false);
+    const [addTask, setAddTask] = useState(false);
     return (
         <>
             <Text style={styles.listHeader}>
@@ -18,20 +22,30 @@ function List({
                 {list.name}
             </Text>
 
-            <View style={[{ backgroundColor: list.color, borderRadius: '10px', padding: 15 }, styles.container]}>
+            <View style={[{ backgroundColor: list.color}, styles.container]}>
 
                 {tasks.filter((t) => list.id === t.listId).map((item) => (
                     <Task
                         key={item.id}
-                        listId={list.id}
+                        list={list}
+                        lists={lists}
                         tasks={tasks}
                         setTasks={setTasks}
                         task={item}
                     />
                 )) }
-                <View style={styles.editButton}>
+                <View style={styles.buttons}>
                     <EditButtonIcon
                         onPress={() => setEdit(!edit)}
+                    />
+                    <AddButton
+                        onPress={() => setAddTask(!addTask)}
+                        customStyle={{
+                            width: 34,
+                            height: 34,
+                            backgroundColor: lightBlue,
+                            borderWidth: 2,
+                            borderColor: 'white'}}
                     />
                 </View>
             </View>
@@ -45,7 +59,17 @@ function List({
                         setEditList={setEdit}
                     />
                 ) : <></>}
-
+            {addTask
+                ? (
+                    <AddTask
+                        addTask={addTask}
+                        setAddTask={setAddTask}
+                        list={list}
+                        setTask={setTasks}
+                        tasks={tasks}
+                        lists={lists.filter((lis) => lis.boardId === list.boardId)}
+                    />
+                ) : <></>}
 
         </>
     );
