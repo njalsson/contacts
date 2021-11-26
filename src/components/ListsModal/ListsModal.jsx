@@ -7,6 +7,7 @@ import Inputs from '../Inputs/Inputs';
 import styles from '../../styles/modal';
 import LargeButton from '../LargeButton/LargeButton';
 import { darkBlue, successGreen } from '../../styles/colors';
+import ColorPicker from '../ColorPicker/ColorPicker';
 
 export default function ListsModal({
     children, showModal, setShowModal, confirmText, confirmAction, inputs, onInputHandler, name,
@@ -25,7 +26,7 @@ export default function ListsModal({
                     placeholder="name: "
                     onChange={(text) => onInputHandler('name', text)}
                 />
-                {//color picker here}
+                
                 <View style={styles.containerRow}>
                     <LargeButton
                         color={successGreen}

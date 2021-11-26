@@ -6,9 +6,9 @@ import styles from './style';
 import List from '../List/List';
 
 export default function ListsView({
-    board, setShowBoard, data,
+    board, setShowBoard, lists, setLists, tasks, setTasks,
 }) {
-    const test = data.lists.filter((list) => list.boardId === board.id);
+    const test = lists.filter((list) => list.boardId === board.id);
     return (
         <>
             <NavigationBar
@@ -19,7 +19,14 @@ export default function ListsView({
             <ScrollView>
                 <View style={styles.container}>
                     {test.map((lis) => (
-                        <List list={lis} listdata={data} key={lis.id} />
+                        <List
+                            list={lis}
+                            lists={lists}
+                            key={lis.id}
+                            setLists={setLists}
+                            tasks={tasks}
+                            setTasks={setTasks}
+                        />
                     ))}
                     {/* // <List boardId={board.id} listdata={data} /> */}
                 </View>

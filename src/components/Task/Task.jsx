@@ -3,14 +3,15 @@ import { View, Text } from 'react-native';
 // import { FlatList, Text } from 'react-native';
 import styles from './style';
 
-function Task({ listId, taskdata }) {
-    const tasksinlist = taskdata.filter((task) => task.listId === listId);
+function Task({
+    listId, tasks, setTasks, task,
+}) {
     return (
-        <View>
-            {tasksinlist.map((t) => (
-                <Text key={t.id} style={styles.task}>{` ${t.id}. ${t.name} \n \t ${t.description} \n`}</Text>
-            ))}
-        </View>
+        
+            
+
+        
+        <Text style={styles.task}>{` ${task.id}. ${task.name} \n \t ${task.description} \n`}</Text>
         // <FlatList
         //     data={taskdata.filter((task) => task.listId === listId)}
         //     keyExtractor={({ id }) => id}

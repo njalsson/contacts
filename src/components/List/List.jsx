@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 // import { FlatList, Text } from 'react-native';
 
 import styles from './Style';
 import Task from '../Task/Task';
+import EditButtonIcon from '../EditButtonIcon/EditButtonIcon';
+import EditList from '../EditList/EditList';
 
-function List({ list, listdata }) {
+function List({
+    list, lists, setLists, tasks, setTasks, editList, setEditList,
+}) {
+    const [edit, setEdit] = useState(false);
     return (
         <>
             <Text style={styles.listHeader}>
@@ -13,26 +18,33 @@ function List({ list, listdata }) {
                 .&nbsp;
                 {list.name}
             </Text>
-            <ScrollView>
-                <View style={{ backgroundColor: list.color, borderRadius: '10px', padding: 15 }}>
-                    {listdata.lists.filter((listo) => listo.id === list.id).map((lis) => (
-                        <Task listId={lis.id} taskdata={listdata.tasks} key={lis.id} />
-                    ))}
-                </View>
-            </ScrollView>
+            <View style={[{ backgroundColor: list.color, borderRadius: '10px', padding: 15 }, styles.container]}>
 
-            {/* <FlatList
-                style={{ backgroundColor: list.color, borderRadius: '10px' }}
-                data={listdata.lists.filter((l) => l.id === list.id)}
-                keyExtractor={({ id }) => id}
-                renderItem={({ item }) => (
+                {tasks.filter((t) => list.id === t.listId).map((item) => (
                     <Task
-                        listId={item.id}
-                        taskdata={listdata.tasks}
+                        key={item.id}
+                        listId={list.id}
+                        tasks={tasks}
+                        setTasks={setTasks}
+                        task={item}
                     />
-                    // <Text style={style.list}>{`${item.id}. ${item.name} \n `}</Text>
-                )}
-            /> */}
+                )) }
+                <View style={styles.editButton}>
+                    <EditButtonIcon
+                        onPress={() => setEdit(!edit)}
+                    />
+                </View>
+            </View>
+            {edit
+                ? (
+                    <EditList
+                        lists={lists}
+                        setLists={setLists}
+                        list={list}
+                        editList={edit}
+                        setEditList={setEdit}
+                    />
+                ) : <></>}
 
         </>
     );

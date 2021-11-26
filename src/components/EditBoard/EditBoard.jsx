@@ -24,7 +24,7 @@ export default function EditBoard({
 
     const onEditHandler = () => {
         const boardsCopy = [...boards];
-        const index = boardsCopy.findIndex(((board) => board.id == id));
+        const index = boardsCopy.findIndex(((board) => board.id === id));
         boardsCopy[index] = {
             ...boardsCopy[index],
             ...inputs,
