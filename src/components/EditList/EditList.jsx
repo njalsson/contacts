@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { View, Pressable } from 'react-native';
 
 import ListsModal from '../ListsModal/ListsModal';
+import DeleteButton from '../DeleteButton/DeleteButton';
 
 export default function EditList({
     lists, setLists, list, editList, setEditList,
@@ -30,6 +31,13 @@ export default function EditList({
         setEditList(!editList);
     };
 
+    const onDeleteHandler = () => {
+        const listCopy = [...lists];
+        const index = listCopy.findIndex((lis) => lis.id === list.id);
+        listCopy.splice(index, 1);
+        setLists(listCopy);
+        setEditList(!editList);
+    };
     return (
         <ListsModal
             showModal={editList}
@@ -39,6 +47,10 @@ export default function EditList({
             inputs={inputs}
             onInputHandler={onInputHandler}
             name="Edit list"
-        />
+        >
+            <DeleteButton
+                onPress={() => onDeleteHandler()}
+            />
+        </ListsModal>
     );
 }

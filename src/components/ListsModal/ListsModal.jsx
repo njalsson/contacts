@@ -26,7 +26,7 @@ export default function ListsModal({
                     placeholder="name: "
                     onChange={(text) => onInputHandler('name', text)}
                 />
-                
+                <ColorPicker onPressHandler={onInputHandler} currentColor={inputs.color}/>
                 <View style={styles.containerRow}>
                     <LargeButton
                         color={successGreen}

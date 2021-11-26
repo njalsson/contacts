@@ -8,7 +8,7 @@ import EditButtonIcon from '../EditButtonIcon/EditButtonIcon';
 import EditList from '../EditList/EditList';
 
 function List({
-    list, lists, setLists, tasks, setTasks, editList, setEditList,
+    list, lists, setLists, tasks, setTasks, editList, setEditList
 }) {
     const [edit, setEdit] = useState(false);
     return (

@@ -21,10 +21,8 @@ export default function App() {
 
     const [currentBoard, setCurrentBoard] = useState();
     const [showBoard, setShowBoard] = useState(false);
-    console.log(tasks)
     return (
         <View style={styles.container}>
-            
             {showBoard
                 ? (
                     <ListsView

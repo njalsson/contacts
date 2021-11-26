@@ -23,7 +23,7 @@ export default StyleSheet.create({
     editButton: {
         marginTop: 20,
         width: 'auto',
-        alignItems: 'center',
+        alignItems: 'flex-end',
         justifyContent: 'center',
     },
 
