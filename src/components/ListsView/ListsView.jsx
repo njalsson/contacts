@@ -19,7 +19,7 @@ export default function ListsView({
                 <View style={styles.backbutton}>
                     {/* button color fixes a bug on android/web
                      where the button gets a white overlay and is unreadable */}
-                    <Button color={Platform.OS === 'android' || Platform.OS === 'web' ? '' : 'white'} title=" Back " onPress={() => setShowBoard(false)} />
+                    <Button color={Platform.OS !== 'ios' ? '' : 'white'} title=" Back " onPress={() => setShowBoard(false)} />
                 </View>
             </NavigationBar>
             <ScrollView>
