@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, Button, ScrollView, Platform } from 'react-native';
+import {
+    View, Button, ScrollView, Platform,
+} from 'react-native';
 
 import NavigationBar from '../NavigationBar/NavigationBar';
 import styles from './style';
