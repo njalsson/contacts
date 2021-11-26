@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet, Dimensions, Platform } from 'react-native';
 import { darkBlue } from '../../styles/colors';
 import fonts from '../../styles/fonts';
 
@@ -8,7 +8,8 @@ export default StyleSheet.create({
     container: {
         justifyContent: 'space-between',
         width: winWidth,
-        height: 50,
+        height: Platform.OS === 'android' ? 78 : 48,
+        paddingTop: Platform.OS === 'android' ? 30 : 0,
         backgroundColor: darkBlue,
         paddingBottom: 5,
         flexDirection: 'row',

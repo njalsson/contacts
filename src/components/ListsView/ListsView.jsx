@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Button, ScrollView } from 'react-native';
+import { View, Button, ScrollView, Platform } from 'react-native';
 
 import NavigationBar from '../NavigationBar/NavigationBar';
 import styles from './style';
@@ -15,7 +15,9 @@ export default function ListsView({
                 currentPage={board.name}
             >
                 <View style={styles.backbutton}>
-                    <Button color="white" title=" Back " onPress={() => setShowBoard(false)} />
+                    {/* button color fixes a bug on android/web
+                     where the button gets a white overlay and is unreadable */}
+                    <Button color={Platform.OS === 'android' || Platform.OS === 'web' ? '' : 'white'} title=" Back " onPress={() => setShowBoard(false)} />
                 </View>
             </NavigationBar>
             <ScrollView>

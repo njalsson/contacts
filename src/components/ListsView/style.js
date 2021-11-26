@@ -10,8 +10,9 @@ export default StyleSheet.create({
     },
     backbutton: {
         color: 'white',
+        overflow: 'hidden',
         borderRadius: 10,
-        backgroundColor: 'rgba(150, 161, 179, 0.0)',
+        // backgroundColor: 'rgba(150, 161, 179, 0.0)',
 
         borderWidth: 1,
         borderColor: 'white',

@@ -7,6 +7,8 @@ function Task({ listId, taskdata }) {
     return (
         <View>
             {tasksinlist.map((t) => {
+                // if a task is finished or in the "Done" list in
+                // the Boring stuff board it is striked through to show it is finished
                 if (t.isFinished || t.listId === 5) {
                     return (<Text key={t.id} style={styles.finishedtask}>{` ${t.id}. ${t.name} \n \t ${t.description} \n`}</Text>);
                 }

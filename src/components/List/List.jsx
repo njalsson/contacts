@@ -13,7 +13,7 @@ function List({ list, listdata }) {
                 {list.name}
             </Text>
             <ScrollView>
-                <View style={{ backgroundColor: list.color, borderRadius: '10px', padding: 15 }}>
+                <View style={{ backgroundColor: list.color, borderRadius: 10, padding: 15 }}>
                     {listdata.lists.filter((listo) => listo.id === list.id).map((lis) => (
                         <Task listId={lis.id} taskdata={listdata.tasks} key={lis.id} />
                     ))}
