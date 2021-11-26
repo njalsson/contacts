@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, TouchableHighlight, View } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
-import { darkBlue } from '../../styles/colors';
 
 const styles = StyleSheet.create({
     button: {
@@ -9,7 +8,7 @@ const styles = StyleSheet.create({
         elevation: 2,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: darkBlue,
+        backgroundColor: 'green',
         height: 30,
         width: 60,
     },

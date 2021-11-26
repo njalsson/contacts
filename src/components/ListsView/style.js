@@ -22,5 +22,5 @@ export default StyleSheet.create({
         position: 'absolute',
         elevation: 2,
         bottom: 50,
-    }
+    },
 });
