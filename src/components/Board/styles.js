@@ -35,7 +35,7 @@ export default StyleSheet.create({
     button: {
         position: 'absolute',
         bottom: 10,
-        right: 20,
+        left: 20,
         elevation: 5,
         zIndex: 4,
     },

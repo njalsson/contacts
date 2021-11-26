@@ -30,6 +30,13 @@ export default function EditTask({
         setTasks(tasksCopy);
         setEditTask(!editTask);
     };
+    const onDeleteHandler = () => {
+        const tasksCopy = [...tasks];
+        const index = tasksCopy.findIndex((t) => t.id == task.id);
+        tasksCopy.splice(index, 1);
+        setTasks(tasksCopy);
+        setEditTask(!editTask);
+    };
 
     return (
         <TasksModal
@@ -41,6 +48,10 @@ export default function EditTask({
             onInputHandler={onInputHandler}
             name="Edit task"
             lists={lists}
-        />
+        >
+            <DeleteButton
+                onPress={onDeleteHandler}
+            />
+        </TasksModal>
     );
 }

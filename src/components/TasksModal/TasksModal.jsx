@@ -1,8 +1,8 @@
 import React from 'react';
 import {
-    Modal, View, Text, Picker,
+    Modal, View, Text,
 } from 'react-native';
-
+import { Picker } from '@react-native-picker/picker';
 import Inputs from '../Inputs/Inputs';
 import styles from '../../styles/modal';
 import LargeButton from '../LargeButton/LargeButton';
@@ -34,16 +34,17 @@ export default function TasksModal({
                     onChange={(text) => onInputHandler('name', text)}
                 />
                 <Inputs
-                    value={inputs.name}
+                    value={inputs.description}
                     placeholder="description: "
                     onChange={(text) => onInputHandler('description', text)}
                 />
                 <Picker
                     selectedValue={inputs.listId}
-                    onValueChange={({ itemValue }) => onInputHandler('listId', itemValue)}
+                    onValueChange={( value ) => onInputHandler('listId', value)}
+                    style={{ height: 200, width: 200 }}
                 >
-                    {lists.map((list) => (
-                        <Picker.Item label={list.name} value={list.id} />
+                    {lists.map((lis) => (
+                        <Picker.Item label={lis.name} value={lis.id} key={lis.id} />
                     ))}
                 </Picker>
                 <View style={styles.containerRow}>

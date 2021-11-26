@@ -14,7 +14,7 @@ export default function Boards({
     return (
         <>
             <NavigationBar currentPage="Boards" />
-            <ScrollView>
+            <ScrollView contentContainerStyle={{paddingBottom: 150}}>
                 <View style={styles.container}>
                     {boards.map((board) => (
                         <Board

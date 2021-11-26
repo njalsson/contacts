@@ -24,7 +24,7 @@ export default function ListsView({
                     <Button color={Platform.OS !== 'ios' ? '' : 'white'} title=" Back " onPress={() => setShowBoard(false)} />
                 </View>
             </NavigationBar>
-            <ScrollView>
+            <ScrollView contentContainerStyle={{paddingBottom: 150}}>
                 <View style={styles.container}>
                     {test.map((lis) => (
                         <List
