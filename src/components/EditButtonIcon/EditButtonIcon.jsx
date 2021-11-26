@@ -27,7 +27,7 @@ export default function EditButtonIcon({ onPress }) {
                 <FontAwesome5
                     name="edit"
                     size={20}
-                    color="black"
+                    color="white"
                 />
             </View>
         </TouchableHighlight>
