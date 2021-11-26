@@ -38,10 +38,13 @@ export default function TasksModal({
                     placeholder="description: "
                     onChange={(text) => onInputHandler('description', text)}
                 />
+                <Text style={styles.modalText}>move to list</Text>
                 <Picker
                     selectedValue={inputs.listId}
-                    onValueChange={( value ) => onInputHandler('listId', value)}
-                    style={{ height: 200, width: 200 }}
+                    onValueChange={(value) => onInputHandler('listId', value)}
+                    style={{
+                        height: 200, width: 200, borderColor: 'lightgrey', borderWidth: 1, borderRadius: 40, marginBottom: 30,
+                    }}
                 >
                     {lists.map((lis) => (
                         <Picker.Item label={lis.name} value={lis.id} key={lis.id} />
