@@ -21,7 +21,6 @@ export default function App() {
 
     const [currentBoard, setCurrentBoard] = useState();
     const [showBoard, setShowBoard] = useState(false);
-
     return (
         <View style={styles.container}>
             {showBoard
@@ -29,7 +28,10 @@ export default function App() {
                     <ListsView
                         board={currentBoard}
                         setShowBoard={setShowBoard}
-                        data={data}
+                        lists={lists}
+                        setLists={setLists}
+                        tasks={tasks}
+                        setTasks={setTasks}
                     />
                 )
 

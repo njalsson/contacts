@@ -1,24 +1,23 @@
 import React from 'react';
 import {
-    View, Modal, Text, Pressable,
+    Modal, View, Text,
 } from 'react-native';
 
 import Inputs from '../Inputs/Inputs';
 import styles from '../../styles/modal';
 import LargeButton from '../LargeButton/LargeButton';
 import { darkBlue, successGreen } from '../../styles/colors';
+import ColorPicker from '../ColorPicker/ColorPicker';
 
-export default function BoardModal({
-    showModal, setShowModal, confirmText, confirmAction, inputs, onInputHandler, name, children
+export default function ListsModal({
+    children, showModal, setShowModal, confirmText, confirmAction, inputs, onInputHandler, name,
 }) {
     return (
         <Modal
             animationType="slide"
             transparent
             visible={showModal}
-            onRequestClose={() => {
-                setShowModal(!showModal);
-            }}
+            onRequestClose={() => setShowModal(!showModal)}
         >
             <View style={styles.modalView}>
                 <Text style={styles.modalText}>{name}</Text>
@@ -27,16 +26,7 @@ export default function BoardModal({
                     placeholder="name: "
                     onChange={(text) => onInputHandler('name', text)}
                 />
-                <Inputs
-                    value={inputs.description}
-                    placeholder="description: "
-                    onChange={(text) => onInputHandler('description', text)}
-                />
-                <Inputs
-                    value={inputs.imageUrl}
-                    placeholder="image url: "
-                    onChange={(text) => onInputHandler('imageUrl', text)}
-                />
+                <ColorPicker onPressHandler={onInputHandler} currentColor={inputs.color}/>
                 <View style={styles.containerRow}>
                     <LargeButton
                         color={successGreen}
@@ -51,6 +41,7 @@ export default function BoardModal({
                 </View>
                 {children}
             </View>
+
         </Modal>
     );
 }

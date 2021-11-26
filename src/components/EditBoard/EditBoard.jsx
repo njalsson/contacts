@@ -5,7 +5,7 @@ import {
 import { Feather } from '@expo/vector-icons';
 import styles from './style';
 import BoardModal from '../BoardModal/BoardModal';
-
+import DeleteButton from '../DeleteButton/DeleteButton';
 export default function EditBoard({
     setBoards, id, name, description, imageUrl, editBoard, setEditBoard, boards,
 }) {
@@ -24,7 +24,7 @@ export default function EditBoard({
 
     const onEditHandler = () => {
         const boardsCopy = [...boards];
-        const index = boardsCopy.findIndex(((board) => board.id == id));
+        const index = boardsCopy.findIndex(((board) => board.id === id));
         boardsCopy[index] = {
             ...boardsCopy[index],
             ...inputs,
@@ -35,7 +35,7 @@ export default function EditBoard({
 
     const onDeleteHandler = () => {
         const boardsCopy = [...boards];
-        const index = boardsCopy.findIndex(((board) => board.id == id));
+        const index = boardsCopy.findIndex(((board) => board.id === id));
         boardsCopy.splice(index, 1);
         setBoards(boardsCopy);
     };
@@ -51,15 +51,15 @@ export default function EditBoard({
             name="Edit board"
 
         >
-            <Pressable
-                style={[styles.button, styles.delete]}
+
+            <DeleteButton
+                style={styles.delete}
                 onPress={() => {
                     setEditBoard(!editBoard);
                     onDeleteHandler();
                 }}
-            >
-                <View><Feather name="trash-2" size={24} /></View>
-            </Pressable>
+            />
+
         </BoardModal>
     );
 }

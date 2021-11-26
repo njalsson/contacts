@@ -13,14 +13,4 @@ export default StyleSheet.create({
         justifyContent: 'center',
     
     },
-    
-    delete: {
-        position: 'absolute',
-        backgroundColor: errorRed,
-        top: -10,
-        left: -10,
-        width: 45,
-        height: 45,
-        borderRadius: 50,
-    },
 });

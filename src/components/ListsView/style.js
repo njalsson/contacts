@@ -19,4 +19,9 @@ export default StyleSheet.create({
         marginBottom: 8,
 
     },
+    addButton: {
+        position: 'absolute',
+        elevation: 2,
+        bottom: 50,
+    }
 });

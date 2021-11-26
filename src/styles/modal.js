@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { lighterBlue, successGreen, errorRed } from '../../styles/colors';
-
+import fonts from './fonts';
 export default StyleSheet.create({
 
     modalView: {
@@ -22,16 +21,8 @@ export default StyleSheet.create({
         shadowRadius: 4,
         elevation: 5,
     },
-    button: {
-        borderRadius: 20,
-        padding: 10,
-        width: 100,
-        elevation: 2,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
     modalText: {
-        marginBottom: 15,
+        ...fonts.h1,
         textAlign: 'center',
     },
     containerRow: {
@@ -39,13 +30,6 @@ export default StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
         width: '100%',
-    },
-    actionButton: {
-        backgroundColor: successGreen,
-
-    },
-    cancellButton: {
-        backgroundColor: lighterBlue,
     },
     textStyle: {
         color: 'white',
