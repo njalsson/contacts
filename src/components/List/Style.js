@@ -5,9 +5,10 @@ export default StyleSheet.create({
     listHeader: {
         color: 'rgba(0, 0, 0, 0.6)',
         fontSize: 20,
-        marginBottom: 5,
+        marginBottom: 10,
     },
     container: {
+        marginBottom: 20,
         position: 'relative',
         flexDirection: 'column',
         minWidth: '100%',

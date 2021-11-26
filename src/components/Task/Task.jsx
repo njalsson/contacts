@@ -3,6 +3,7 @@ import { Text, View, TouchableWithoutFeedback } from 'react-native';
 import styles from './style';
 import EditButtonIcon from '../EditButtonIcon/EditButtonIcon';
 import EditTask from '../EditTask/EditTask';
+import fonts from '../../styles/fonts';
 
 function Task({
     tasks, setTasks, task, lists, list,
@@ -31,7 +32,8 @@ function Task({
         >
 
             <View style={containerStyle}>
-                <Text style={textStyle}>{` ${task.id}. ${task.name} \n \t ${task.description} \n`}</Text>
+                <Text style={[textStyle, fonts.h2]}>{task.name}</Text>
+                <Text style={[textStyle, fonts.text]}>{task.description}</Text>
                 <View style={{ position: 'absolute', top: -15, right: -10 }}>
                     <EditButtonIcon
                         onPress={() => setEdit(!edit)}

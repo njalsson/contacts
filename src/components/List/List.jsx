@@ -8,6 +8,7 @@ import EditList from '../EditList/EditList';
 import AddButton from '../AddButton/AddButton';
 import AddTask from '../AddTask.jsx/AddTask';
 import { lightBlue } from '../../styles/colors';
+import fonts from '../../styles/fonts';
 
 function List({
     list, lists, setLists, tasks, setTasks,
@@ -16,13 +17,11 @@ function List({
     const [addTask, setAddTask] = useState(false);
     return (
         <>
-            <Text style={styles.listHeader}>
-                {list.id}
-                .&nbsp;
-                {list.name}
-            </Text>
 
             <View style={[{ backgroundColor: list.color}, styles.container]}>
+                <Text style={[styles.listHeader, fonts.h1]}>
+                    {list.name}
+                </Text>
 
                 {tasks.filter((t) => list.id === t.listId).map((item) => (
                     <Task

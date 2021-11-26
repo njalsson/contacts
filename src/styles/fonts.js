@@ -12,4 +12,8 @@ export default StyleSheet.create({
     text: {
         fontSize: 16,
     },
+    h2: {
+        fontSize: 16,
+        fontWeight: 'bold',
+    }
 })
