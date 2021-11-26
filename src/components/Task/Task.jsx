@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-// import { FlatList, Text } from 'react-native';
 import styles from './style';
 
 function Task({
     listId, tasks, setTasks, task,
 }) {
     return (
+
         
             
 
@@ -19,6 +19,7 @@ function Task({
         //         <Text>{`\n ${item.id}. ${item.name} \n \t ${item.description} `}</Text>
         //     )}
         // />
+
     );
 }
 export default Task;

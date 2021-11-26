@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { View, Text, ScrollView } from 'react-native';
-// import { FlatList, Text } from 'react-native';
 
 import styles from './Style';
 import Task from '../Task/Task';
@@ -18,6 +17,7 @@ function List({
                 .&nbsp;
                 {list.name}
             </Text>
+
             <View style={[{ backgroundColor: list.color, borderRadius: '10px', padding: 15 }, styles.container]}>
 
                 {tasks.filter((t) => list.id === t.listId).map((item) => (
@@ -45,6 +45,7 @@ function List({
                         setEditList={setEdit}
                     />
                 ) : <></>}
+
 
         </>
     );

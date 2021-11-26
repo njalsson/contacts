@@ -3,19 +3,21 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     container: {
         marginTop: 5,
-        // backgroundColor: 'white',
-        // borderColor: 'black',
-        // borderWidth: 1,
-        // // borderRadius: 10,
-        // borderStyle: 'solid',
+
         flex: 1,
         padding: 20,
         justifyContent: 'flex-start',
     },
-    listHeader: {
-        color: 'grey',
-        fontSize: 20,
-        marginBottom: 5,
+    backbutton: {
+        color: 'white',
+        overflow: 'hidden',
+        borderRadius: 10,
+        // backgroundColor: 'rgba(150, 161, 179, 0.0)',
+
+        borderWidth: 1,
+        borderColor: 'white',
+        marginBottom: 8,
+
     },
     addButton: {
         position: 'absolute',

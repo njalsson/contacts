@@ -135,7 +135,7 @@
             "id": 10,
             "name": "Vacuum the living room",
             "description": "The living room is a mess!",
-            "isFinished": true,
+            "isFinished": false,
             "listId": 5
         },
         {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput} from 'react-native';
+import { StyleSheet, Text, TextInput } from 'react-native';
 
 const styles = StyleSheet.create({
     input: {
@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
 });
 
 export default function Inputs({
-    value, onChange, placeholder
+    value, onChange, placeholder,
 }) {
     return (
         <TextInput

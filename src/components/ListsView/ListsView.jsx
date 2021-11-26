@@ -1,5 +1,7 @@
+
 import React, { useState } from 'react';
 import { View, Button, ScrollView } from 'react-native';
+
 
 import NavigationBar from '../NavigationBar/NavigationBar';
 import styles from './style';
@@ -17,7 +19,11 @@ export default function ListsView({
             <NavigationBar
                 currentPage={board.name}
             >
-                <Button color="white" title="back" onPress={() => setShowBoard(false)} />
+                <View style={styles.backbutton}>
+                    {/* button color fixes a bug on android/web
+                     where the button gets a white overlay and is unreadable */}
+                    <Button color={Platform.OS !== 'ios' ? '' : 'white'} title=" Back " onPress={() => setShowBoard(false)} />
+                </View>
             </NavigationBar>
             <ScrollView>
                 <View style={styles.container}>
@@ -31,7 +37,6 @@ export default function ListsView({
                             setTasks={setTasks}
                         />
                     ))}
-                    {/* // <List boardId={board.id} listdata={data} /> */}
                 </View>
             </ScrollView>
             <View style={styles.addButton}>
