@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { View, Button, ScrollView } from 'react-native';
+import { Platform, View, Button, ScrollView } from 'react-native';
 
 
 import NavigationBar from '../NavigationBar/NavigationBar';
