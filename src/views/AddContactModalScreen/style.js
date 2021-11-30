@@ -5,7 +5,7 @@ export default StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'flex-start',
+        justifyContent: 'space-around',
         paddingTop: 20,
     },
     inputContainer: {
@@ -18,5 +18,8 @@ export default StyleSheet.create({
         borderTopWidth: 0.3,
         borderBottomWidth: 0.3,
         borderColor: '#6C757D',
+    },
+    imageContainer: {
+
     }
 });

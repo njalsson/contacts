@@ -11,7 +11,7 @@ export default function BasicInput({onChange, value, placeholder}) {
         <TextInput
             style={focused ? [styles.input, styles.focused] : styles.input}
             placeholderTextColor="#6C757D"
-            onChange={onChange}
+            onChangeText={onChange}
             value={value}
             placeholder={placeholder}
             onFocus={() => setFocused(true)}

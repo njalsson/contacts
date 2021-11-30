@@ -3,25 +3,17 @@ import { StyleSheet, Text, View, Button} from 'react-native';
 import PropTypes from 'prop-types';
 
 import * as Contacts from 'expo-contacts';
+import * as fileService from '../../services/fileService';
 
 export default function ContactsView( { navigation }) {
 
     useEffect(() => {
         (async () => {
-            const { status } = await Contacts.requestPermissionsAsync();
-            if (status === 'granted') {
-                const { data } = await Contacts.getContactsAsync({
-                    fields: [Contacts.Fields.Image],
-                });
-    
-                if (data.length > 0) {
-                    const contact = data[0];
-                    console.log(contact);
-                }
-            }
+            const images = await fileService.getAllContacts();
+            console.log(images)
         })();
     }, []);
-      
+
     return (
         <View>
             <Text>This is the Contacts screen loaded from src/views/Contacts using navigation</Text>
