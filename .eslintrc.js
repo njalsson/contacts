@@ -24,7 +24,6 @@ module.exports = {
         'no-undef': 2,
         'semi': [2, 'always'],
         'react/prop-types': 2,
-        'react/jsx-no-bind': 2,
         'react/jsx-no-duplicate-props': 2,
         'indent': [
             'error',
@@ -34,6 +33,5 @@ module.exports = {
             'error',
             'single'
         ],
-        'react/jsx-no-bind': false,
     }
 };
