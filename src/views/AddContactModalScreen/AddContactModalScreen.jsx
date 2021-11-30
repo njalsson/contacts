@@ -22,13 +22,14 @@ export default function AddContactModalScreen({ navigation }) {
     const doneButton = () => {
         navigation.setOptions({headerRight: () => {return (
             <Button
+                disabled={inputs.name && inputs.phoneNumber ? false : true}
                 title="done"
-                onPress={() => {
-                    fileService.addContact({
+                onPress={async () => {
+                    const name = await fileService.addContact({
                         ...inputs,
                         image: photo,
                     });
-                    navigation.goBack();
+                    navigation.navigate('Contacts', {fileName: name});
                 }}    
             />
         
@@ -39,7 +40,7 @@ export default function AddContactModalScreen({ navigation }) {
         doneButton();
     }, [inputs]);
 
-    const [photo, setPhoto] = useState("");
+    const [photo, setPhoto] = useState('');
 
     const onInputHandler = (name, value) => {
         setInputs({
@@ -83,10 +84,8 @@ export default function AddContactModalScreen({ navigation }) {
                 <BasicInput
                     onChange={(text) => {
                         
-
+                        text = text.replace(/[^0-9+]/g, "");
                         onInputHandler('phoneNumber', '' + text);
-                        
-                        console.log(text);
                     }}
                     placeholder="phone number"
                     value={inputs.phoneNumber}

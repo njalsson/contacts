@@ -24,8 +24,12 @@ const cleanName = name => {
 
 export const addContact = async contact => {
     const name = cleanName(contact.name);
-    const filename = name + '-' + uuid.v4() + '.json';
+    const id = uuid.v4();
+    const filename = name + '-' + id + '.json';
+    contact.id = id;
+    contact.fileName = filename;
     await onException(() => FileSystem.writeAsStringAsync(`${contactsDirectory}/${filename}`, JSON.stringify(contact)));
+    return filename;
 };
 
 const setupDirectory = async () => {

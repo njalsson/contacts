@@ -4,15 +4,26 @@ import PropTypes from 'prop-types';
 
 import * as Contacts from 'expo-contacts';
 import * as fileService from '../../services/fileService';
+import * as contactService from '../../services/contactService';
 
-export default function ContactsView( { navigation }) {
+export default function ContactsView( { navigation, route }) {
 
     useEffect(() => {
         (async () => {
-            const images = await fileService.getAllContacts();
-            console.log(images)
+            const contacts = await fileService.getAllContacts();
+            const phoneContacts = await contactService.getContactsFromPhone();
+            console.log(phoneContacts);
         })();
     }, []);
+
+    useEffect(()=> {
+        //Triggered when route params filename changes.
+        if (route.params) {
+            
+            const { fileName } = route.params;
+            route.params = undefined;
+        }
+    },[route.params]);
 
     return (
         <View>
