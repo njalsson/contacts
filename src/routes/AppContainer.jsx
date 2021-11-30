@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator();
 
-import Contacts from '../views/Contacts/Contacts';
+import Contactso from '../views/Contacts/Contacts';
 import Contact from '../views/Contact/Contact';
 
 export default function AppContainer() {
@@ -13,7 +13,7 @@ export default function AppContainer() {
             <Stack.Navigator initialRouteName="Contacts">
                 <Stack.Screen
                     name="Contacts"
-                    component={Contacts}
+                    component={Contactso}
                     options={{
                         headerRight: () => (<Button title="add" />)
                     }}
