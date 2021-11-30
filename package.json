@@ -8,12 +8,14 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "lint": "./node_modules/.bin/eslint **/*.js"
+    "lint": "./node_modules/.bin/eslint **/*.jsx"
   },
   "dependencies": {
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/stack": "^6.0.11",
     "expo": "~43.0.2",
+    "expo-contacts": "~10.0.3",
+    "expo-image-picker": "~11.0.3",
     "expo-status-bar": "~1.1.0",
     "prop-types": "^15.7.2",
     "react": "17.0.1",
@@ -21,6 +23,7 @@
     "react-native": "0.64.3",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.9.0",
+    "react-native-uuid": "^2.0.1",
     "react-native-web": "0.17.1"
   },
   "devDependencies": {
