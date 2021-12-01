@@ -19,7 +19,7 @@ export default function SearchBar({
                 value={searchText}
                 onChangeText={(text) => {
                     setSearchText(text);
-                    setSearchRes([...contacts].filter((s)=> s.name.includes(text)).sort(compareFunc));
+                    setSearchRes([...contacts].filter((s)=> s.name.toLowerCase().includes(text.toLowerCase())).sort(compareFunc));
                 }}
             />
         </View>
