@@ -41,7 +41,7 @@ export default function ContactsView( { navigation, route }) {
                 console.log(mella[i]);
             }
 
-            return ([
+            return (
                 <ScrollView>
                     {mella.map((j) => (
                         <><TouchableOpacity onPress={() => { route('Contact'); } }>
@@ -55,7 +55,7 @@ export default function ContactsView( { navigation, route }) {
                 </ScrollView>
 
         
-                    ]);}
+            );}
         return <Text>eitthvað</Text>;}));
 }
 
