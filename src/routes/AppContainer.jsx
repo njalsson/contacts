@@ -7,7 +7,7 @@ const Stack = createStackNavigator();
 import Contacts from '../views/ContactsScreen/ContactsScreen';
 import Contact from '../views/ContactScreen/ContactScreen';
 import AddContactModalScreen from '../views/AddContactModalScreen/AddContactModalScreen';
-
+import SettingsModalScreen from '../views/SettingsModalScreen/SettingsModalScreen';
 export default function AppContainer() {
     return (
         <NavigationContainer>
@@ -33,6 +33,10 @@ export default function AppContainer() {
                     <Stack.Screen
                         name="Add contact"
                         component={AddContactModalScreen}
+                    />
+                    <Stack.Screen
+                        name="Settings"
+                        component={SettingsModalScreen}
                     />
                 </Stack.Group>
             </Stack.Navigator>
