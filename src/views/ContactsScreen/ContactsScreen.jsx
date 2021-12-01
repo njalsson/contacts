@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, Button, FlatList} from 'react-native';
+import { StyleSheet, Text, View, Button, FlatList, TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
 
 import * as Contacts from 'expo-contacts';
@@ -32,7 +32,6 @@ export default function ContactsScreen( { navigation, route }) {
         (async () => {
             const loadedContacts = await fileService.getAllContacts();
             setContacts(loadedContacts);
-            console.log(contacts);
             //const phoneContacts = await contactService.getContactsFromPhone();
             //console.log(phoneContacts);
             setSort(true);
@@ -70,13 +69,20 @@ export default function ContactsScreen( { navigation, route }) {
 
     const importContacts = async () => {
         const newContacts = await contactService.getContactsFromPhone();
-        const filtered = newContacts.filter(async (c) => {
-            if (!(contacts.some(contact => contact.id === c.id))) { //check if the contact is already imported
-                return await fileService.addContact(c);
-            }});
-        console.log(filtered);
+        // const filtered = newContacts.filter(async (c) => {
+        //     if (!(contacts.some((contact) => contact.id === c.id))) { //check if the contact is already imported
+        //         console.log(contact.id);
+        //         console.log(c.id)
+        //         return await fileService.addContact(c);
+        //     }});
+        // console.log(filtered);
+
+        const filtered = newContacts.filter(c => !(contacts.some(contact => contact.id == c.id)));
+        filtered.forEach(async (co) => {await fileService.addContact(co)});
+        
+
         setContacts([...contacts, ...filtered]);
-        setSort(true);
+        //setSort(true);
 
     };
 
@@ -101,7 +107,6 @@ export default function ContactsScreen( { navigation, route }) {
     const sortContacts = async () => {
         const copy = [...contacts];
         copy.sort(compare);
-        console.log(copy);
         setSort(false);
         setContacts(copy);
     };
@@ -121,10 +126,14 @@ export default function ContactsScreen( { navigation, route }) {
                 keyExtractor={item => item.id}
                 renderItem={({item}) => {
                     return (
-                        <ContactItem
-                            name={item.name}
-                            image={item.image}
-                        />
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Contact')}
+                        >
+                            <ContactItem
+                                name={item.name}
+                                image={item.image}
+                            />
+                        </TouchableOpacity>
                     );
                 }}
             >

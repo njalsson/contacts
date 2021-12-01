@@ -16,6 +16,7 @@ const onException = (cb, errorHandler) => {
 
 export const cleanDirectory = async () => {
     await FileSystem.deleteAsync(contactsDirectory);
+    await setupDirectory();
 };
 
 const cleanName = name => {
