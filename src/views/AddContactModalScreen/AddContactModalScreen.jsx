@@ -29,7 +29,7 @@ export default function AddContactModalScreen({ navigation }) {
                         ...inputs,
                         image: photo,
                     });
-                    navigation.navigate('Contacts', {fileName: name});
+                    navigation.navigate('Contacts', {fileName: name, action: "add"});
                 }}    
             />
         
@@ -71,7 +71,7 @@ export default function AddContactModalScreen({ navigation }) {
             <View style={styles.imageContainer}>
                 <ThumbnailPhoto
                     customStyle={{height: 128, width: 128, borderRadius: 100,}}
-                    image={photo ? {uri: photo} : defaultImage}
+                    image={photo ? photo : ""}
                 />
                 <Button title="Edit photo" onPress={() => setShowAddPhoto(!showAddPhoto)}/>
             </View>

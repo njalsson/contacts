@@ -23,8 +23,13 @@ const cleanName = name => {
 };
 
 export const addContact = async contact => {
+    await setupDirectory();
     const name = cleanName(contact.name);
-    const id = uuid.v4();
+    let id = uuid.v4();
+    if ('id' in contact) {
+        id = contact.id;
+    }
+
     const filename = name + '-' + id + '.json';
     contact.id = id;
     contact.fileName = filename;
@@ -40,9 +45,9 @@ const setupDirectory = async () => {
 };
 
 export const loadContact = async fileName => {
-    return await onException(() => FileSystem.readAsStringAsync(`${contactsDirectory}/${fileName}`, {
+    return JSON.parse(await onException(() => FileSystem.readAsStringAsync(`${contactsDirectory}/${fileName}`, {
         encoding: FileSystem.EncodingType.UTF8
-    }));
+    })));
 };
 
 export const getAllContacts = async () => {
@@ -50,10 +55,6 @@ export const getAllContacts = async () => {
     await setupDirectory();
     const result = await onException(() => FileSystem.readDirectoryAsync(contactsDirectory));
     return Promise.all(result.map(async fileName => {
-        return {
-            name: fileName,
-            type: 'contact',
-            contact: JSON.parse(await loadContact(fileName))
-        };
+        return await loadContact(fileName);
     }));
 }
