@@ -82,7 +82,7 @@ export default function ContactsScreen( { navigation, route }) {
         
 
         setContacts([...contacts, ...filtered]);
-        //setSort(true);
+        setSort(true);
 
     };
 
