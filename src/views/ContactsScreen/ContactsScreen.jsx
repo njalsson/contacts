@@ -78,7 +78,7 @@ export default function ContactsScreen( { navigation, route }) {
         // console.log(filtered);
 
         const filtered = newContacts.filter(c => !(contacts.some(contact => contact.id == c.id)));
-        filtered.forEach(async (co) => {await fileService.addContact(co)});
+        filtered.forEach(async (co) => {await fileService.addContact(co);});
 
 
         setContacts([...contacts, ...filtered]);
@@ -128,8 +128,8 @@ export default function ContactsScreen( { navigation, route }) {
                     return (
                         <TouchableOpacity
                             onPress={() => navigation.navigate('Contact',{
-                              name: item.name,
-                              phonenr: item.phoneNumber,
+                                name: item.name,
+                                phonenr: item.phoneNumber,
                             })}
                         >
                             <ContactItem
@@ -142,10 +142,7 @@ export default function ContactsScreen( { navigation, route }) {
             >
 
             </FlatList>
-            <Button
-                title="Checkout contact view"
-                onPress={() => { navigation.navigate('Contact');}}
-            />
+
         </View>
     );
 }
