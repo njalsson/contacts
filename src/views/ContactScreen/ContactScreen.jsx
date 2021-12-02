@@ -6,6 +6,8 @@ import styles from './styles';
 
 export default function ContactScreen({route, navigation}) {
     const { name, phonenr } = route.params;
+    var phonenrstring = 'tel://'+phonenr;
+    console.log(phonenrstring);
     return (
         <View style={styles.container}>
 
@@ -16,8 +18,8 @@ export default function ContactScreen({route, navigation}) {
           <Text style={styles.name}>{name}</Text>
             <View style={styles.mobile}>
                 <Text style={styles.mobileheader}>mobile</Text>
-                <Text style={styles.phonenr} onPress={()=>{Linking.openURL('tel://+354'+{phonenr});}}>{phonenr}</Text>
-                <TouchableOpacity style={styles.button} onPress={()=>{Linking.openURL('tel://+354'+{phonenr});}}>
+                <Text style={styles.phonenr} onPress={()=>{Linking.openURL(phonenrstring);}}>{phonenr}</Text>
+                <TouchableOpacity style={styles.button} onPress={()=>{Linking.openURL(phonenrstring);}}>
                     <Text>Call </Text>
                 </TouchableOpacity>
             </View>
