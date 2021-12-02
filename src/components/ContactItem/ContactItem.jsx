@@ -5,7 +5,7 @@ import ThumbnailPhoto from '../ThumbnailPhoto/ThumbnailPhoto';
 
 export default function ContactItem({name, image}) {
     return (
-        <View style={styles.container}>
+        <View style={styles.contactCard}>
             <Text style={styles.name}> {name}  </Text>
             <ThumbnailPhoto image={image}/>
         </View>
