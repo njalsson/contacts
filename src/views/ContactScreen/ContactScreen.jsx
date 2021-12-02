@@ -6,7 +6,6 @@ import ThumbnailPhoto from '../../components/ThumbnailPhoto/ThumbnailPhoto';
 import { Ionicons } from '@expo/vector-icons'; 
 import * as fileService from '../../services/fileService';
 import { HeaderBackButton } from '@react-navigation/elements';
-import { MaterialIcons } from '@expo/vector-icons'; 
 
 
 export default function ContactScreen({route, navigation}) {
@@ -105,7 +104,7 @@ export default function ContactScreen({route, navigation}) {
                 <View style={styles.divider}>
                     <TouchableOpacity style={styles.button} onPress={()=>{Linking.openURL(smsstring);}}>
                         <View style={styles.smsbutton}>
-                            <MaterialIcons name="sms" size={44} color='white'   />
+                            <Ionicons name="chatbubble-ellipses-outline" size={44} color='white'   />
                         </View>
                     </TouchableOpacity>
                 </View>
