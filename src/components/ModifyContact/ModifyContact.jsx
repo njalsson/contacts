@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Button, View, KeyboardAvoidingView, Platform} from 'react-native';
 import ThumbnailPhoto from '../ThumbnailPhoto/ThumbnailPhoto';
@@ -12,7 +13,7 @@ export default function ModifyContact({
             <View style={styles.imageContainer}>
                 <ThumbnailPhoto
                     customStyle={{height: 128, width: 128, borderRadius: 100,}}
-                    image={photo ? photo : ""}
+                    image={photo ? photo : ''}
                 />
                 <Button title="Edit photo" onPress={() => setShowAddPhoto(!showAddPhoto)}/>
             </View>
@@ -25,7 +26,7 @@ export default function ModifyContact({
                 <BasicInput
                     onChange={(text) => {
                         
-                        text = text.replace(/[^0-9+]/g, "");
+                        text = text.replace(/[^0-9+]/g, '');
                         onInputHandler('phoneNumber', '' + text);
                     }}
                     placeholder="phone number"
@@ -42,6 +43,6 @@ export default function ModifyContact({
                 />) : <></>
             }
         </KeyboardAvoidingView>
-    )
+    );
 }
 

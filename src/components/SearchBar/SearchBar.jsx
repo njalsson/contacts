@@ -15,6 +15,7 @@ export default function SearchBar({
         >
 
             <TextInput
+                clearButtonMode="always"
                 style={styles.input}
                 placeholder="Search"
                 value={searchText}
