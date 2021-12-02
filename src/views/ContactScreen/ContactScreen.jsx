@@ -79,7 +79,7 @@ export default function ContactScreen({route, navigation}) {
                 <Text style={styles.mobileheader}>mobile</Text>
                 <Text style={styles.phonenr} onPress={()=>{Linking.openURL('tel://+354'+{phonenr});}}>{currentContact.phoneNumber}</Text>
             </View>
-            <TouchableOpacity style={styles.button} onPress={()=>{Linking.openURL('tel://+354'+{phonenr});}}>
+            <TouchableOpacity style={styles.button} onPress={()=>{Linking.openURL(phonenrstring);}}>
                 <Ionicons name="ios-call" size={64} color="green" />
             </TouchableOpacity>
 
