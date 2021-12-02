@@ -129,7 +129,7 @@ const ContactsScreen = ( { navigation, route }) => {
             />
             <FlatList
                 style={{height: '100%'}}
-                contentContainerStyle={{alignItems: 'center'}}
+                contentContainerStyle={{alignItems: 'center', paddingBottom: 100}}
                 data={searchText.length > 0 ? searchRes : contacts}
                 keyExtractor={item => item.id}
                 renderItem={({item}) => {
