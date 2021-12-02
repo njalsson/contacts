@@ -89,11 +89,13 @@ export default function ContactScreen({route, navigation}) {
                         <Ionicons name="ios-call" size={44} color='white'   />
                     </View>
                 </TouchableOpacity>
+                <View style={styles.divider}>
                 <TouchableOpacity style={styles.button} onPress={()=>{Linking.openURL(smsstring);}}>
                     <View style={styles.smsbutton}>
                         <MaterialIcons name="sms" size={44} color='white'   />
                     </View>
                 </TouchableOpacity>
+                </View>
             </View>
 
         </View>
