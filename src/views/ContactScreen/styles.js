@@ -53,23 +53,45 @@ export default StyleSheet.create({
 
     callbutton: {
         backgroundColor: '#4BB543',
-
-        padding: 10,
-        borderRadius: 35,
+        marginRight: 20,
+        padding: 13,
+        borderRadius: 50,
         borderWidth: 1,
         borderColor: '#4BB543'
     },
     smsbutton: {
-        backgroundColor: 'lightblue',
-        marginLeft: 40,
+        backgroundColor: '#6495ED',
+        marginLeft: 20,
 
         padding: 15,
-        borderRadius: 35,
+        borderRadius: 50,
     },
     buttons: {
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row',   
 
+    },
+    divider: {
+        borderWidth: 1,
+        borderTopColor: 'rgba(255,0,0,0.0)',
+        borderRightColor: 'rgba(255,0,0,0.0)',
+        borderBottomColor: 'rgba(255,0,0,0.0)',
+        borderLeftColor: 'lightgrey',
+
+    },
+    noimage: {
+        backgroundColor: 'lightblue',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderWidth: 1,
+        borderColor: 'lightgrey',
+        height: 128, 
+        width: 128, 
+        borderRadius: 100
+    },
+    noimageletter: {
+        fontSize: 40,
     }
+
 });

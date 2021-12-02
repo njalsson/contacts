@@ -1,6 +1,6 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { TextInput } from 'react-native';
-import PropTypes from 'prop-types';
 
 import styles from './style';
 export default function BasicInput({onChange, value, placeholder}) {
@@ -11,13 +11,14 @@ export default function BasicInput({onChange, value, placeholder}) {
         <TextInput
             style={focused ? [styles.input, styles.focused] : styles.input}
             placeholderTextColor="#6C757D"
+            autoCapitalize='words'
             onChangeText={onChange}
             value={value}
             placeholder={placeholder}
             onFocus={() => setFocused(true)}
             onEndEditing={() => setFocused(false)}
         />
-    )
+    );
 }
 
 // BasicInput.propTypes = {

@@ -1,10 +1,10 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
 import { Button, } from 'react-native';
 
 import * as imageService from '../../services/imageService';
 import * as fileService from '../../services/fileService'; 
 import ModifyContact from '../../components/ModifyContact/ModifyContact';
-import { Children } from 'react';
 
 
 export default function EditContactModalScreen({ navigation, route }) {
@@ -32,7 +32,7 @@ export default function EditContactModalScreen({ navigation, route }) {
                     const name = await fileService.editContact({
                         ...inputs,
                     });
-                    navigation.navigate('Contact', {fileName: name, action: "edit"});
+                    navigation.navigate('Contact', {fileName: name, action: 'edit'});
                 }}    
             />
         

@@ -1,5 +1,6 @@
-import React, { useEffect, useState, useLayoutEffect } from 'react';
-import { StyleSheet, Text, View, Button, FlatList, TouchableOpacity} from 'react-native';
+/* eslint-disable react/prop-types */
+import React, { useEffect, useState } from 'react';
+import {  View, Button, FlatList, TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
 
 import * as fileService from '../../services/fileService';
@@ -152,7 +153,7 @@ const ContactsScreen = ( { navigation, route }) => {
 
         </View>
     );
-}
+};
 
 ContactsScreen.propTypes = {
     navigation: PropTypes.object.isRequired,
@@ -160,4 +161,3 @@ ContactsScreen.propTypes = {
 
 
 export default ContactsScreen;
-const styles = StyleSheet.create({});

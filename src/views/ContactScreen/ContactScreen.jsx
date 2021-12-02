@@ -1,19 +1,26 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, Linking, Button } from 'react-native';
-import { color } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
+import {  Text, View, TouchableOpacity, Linking, Button } from 'react-native';
 import styles from './styles';
 import ThumbnailPhoto from '../../components/ThumbnailPhoto/ThumbnailPhoto';
 import { Ionicons } from '@expo/vector-icons'; 
 import * as fileService from '../../services/fileService';
 import { HeaderBackButton } from '@react-navigation/elements';
-import { roundToNearestPixel } from 'react-native/Libraries/Utilities/PixelRatio';
-import { MaterialIcons } from '@expo/vector-icons'; 
 
 
 export default function ContactScreen({route, navigation}) {
     const [currentContact, setCurrentContact] = useState({});
     var phonenrstring = 'tel://'+currentContact.phoneNumber;
     var smsstring = 'sms://'+currentContact.phoneNumber;
+    if (currentContact.name && !currentContact.image){
+        //when the async function returns the name we get the initials of the contact to use as a temporary profile picture
+        var names = currentContact.name.split(' ');
+        var initials = '';
+        for (var i= 0; i < names.length; i++){
+            if (names[i].length > 0){
+                initials += names[i][0];
+            }
+        }}
     
     
 
@@ -37,7 +44,7 @@ export default function ContactScreen({route, navigation}) {
                         {...props}
                         onPress={() => navigation.navigate('Contacts', {...route.params})}
                     />
-                )
+                );
             },
         },);
     };
@@ -66,14 +73,19 @@ export default function ContactScreen({route, navigation}) {
 
     const loadContact = async fileName => {
         setCurrentContact(await fileService.loadContact(fileName));
-    }
+    };
     return (
         <View style={styles.container}>
             <View style={styles.infocontainer}>
-                <ThumbnailPhoto
-                    image={currentContact.image}
-                    customStyle={{height: 128, width: 128, borderRadius: 100}}
-                />
+                {/* if the contact has a photo display it, otherwise display their initials */}
+                {currentContact.image ?
+                    <ThumbnailPhoto
+                        image={currentContact.image}
+                        customStyle={{height: 128, width: 128, borderRadius: 100}}
+                    />
+                    :         <View >
+                        <View style={styles.noimage}><Text style={styles.noimageletter}>{initials}</Text></View>
+                    </View>}
 
                 <Text style={styles.name}>{currentContact.name}</Text> 
             </View>
@@ -81,7 +93,7 @@ export default function ContactScreen({route, navigation}) {
             
             <View style={styles.mobile}>
                 <Text style={styles.mobileheader}>mobile</Text>
-                <Text style={styles.phonenr} onPress={()=>{Linking.openURL('tel://+354'+{phonenr});}}>{currentContact.phoneNumber}</Text>
+                <Text style={styles.phonenr} onPress={()=>{Linking.openURL(phonenrstring);}}>{currentContact.phoneNumber}</Text>
             </View>
             <View style={styles.buttons}>
                 <TouchableOpacity style={styles.button} onPress={()=>{Linking.openURL(phonenrstring);}}>
@@ -89,11 +101,13 @@ export default function ContactScreen({route, navigation}) {
                         <Ionicons name="ios-call" size={44} color='white'   />
                     </View>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={()=>{Linking.openURL(smsstring);}}>
-                    <View style={styles.smsbutton}>
-                        <MaterialIcons name="sms" size={44} color='white'   />
-                    </View>
-                </TouchableOpacity>
+                <View style={styles.divider}>
+                    <TouchableOpacity style={styles.button} onPress={()=>{Linking.openURL(smsstring);}}>
+                        <View style={styles.smsbutton}>
+                            <Ionicons name="chatbubble-ellipses-outline" size={44} color='white'   />
+                        </View>
+                    </TouchableOpacity>
+                </View>
             </View>
 
         </View>
