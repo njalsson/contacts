@@ -9,7 +9,7 @@ import defaultImage from '../../resources/images/default.png';
 import AddPhotoModal from '../../components/AddPhotoModal/AddPhotoModal';
 import * as imageService from '../../services/imageService';
 import * as fileService from '../../services/fileService'; 
-
+import ModifyContact from '../../components/ModifyContact/ModifyContact';
 
 
 export default function AddContactModalScreen({ navigation }) {
@@ -67,40 +67,16 @@ export default function AddContactModalScreen({ navigation }) {
     };
 
     return (
-        <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === 'ios' ? 'padding' : 'height'} keyboardVerticalOffset={100}>
-            <View style={styles.imageContainer}>
-                <ThumbnailPhoto
-                    customStyle={{height: 128, width: 128, borderRadius: 100,}}
-                    image={photo ? photo : ""}
-                />
-                <Button title="Edit photo" onPress={() => setShowAddPhoto(!showAddPhoto)}/>
-            </View>
-            <View style={styles.inputContainer}>
-                <BasicInput
-                    onChange={(text) => onInputHandler('name', text)}
-                    placeholder="name"
-                    value={inputs.name}
-                />
-                <BasicInput
-                    onChange={(text) => {
-                        
-                        text = text.replace(/[^0-9+]/g, "");
-                        onInputHandler('phoneNumber', '' + text);
-                    }}
-                    placeholder="phone number"
-                    value={inputs.phoneNumber}
-                />
-
-            </View>
-            {showAddPhoto ? 
-                (<AddPhotoModal
-                    showModal={showAddPhoto}
-                    setShowModal={setShowAddPhoto}
-                    takePhoto={takePhoto}
-                    selectPhoto={selectFromCameraRoll}
-                />) : <></>
-            }
-        </KeyboardAvoidingView>
+        <ModifyContact
+            setShowAddPhoto={setShowAddPhoto}
+            onInputHandler={onInputHandler}
+            inputs={inputs}
+            photo={photo}
+            setPhoto={setPhoto}
+            showAddPhoto={showAddPhoto}
+            takePhoto={takePhoto}
+            selectFromCameraRoll={selectFromCameraRoll}
+        />
     );
 }
 
