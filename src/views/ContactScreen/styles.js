@@ -86,14 +86,12 @@ export default StyleSheet.create({
         justifyContent: 'center',
         borderWidth: 1,
         borderColor: 'lightgrey',
-        // justifyContent: 'flex-start',
         height: 128, 
         width: 128, 
         borderRadius: 100
     },
     noimageletter: {
-        fontSize: 50,
-        // fontWeight: 'bold'
+        fontSize: 40,
     }
 
 });

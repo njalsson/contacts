@@ -14,8 +14,8 @@ export default function ContactScreen({route, navigation}) {
     const [currentContact, setCurrentContact] = useState({});
     var phonenrstring = 'tel://'+currentContact.phoneNumber;
     var smsstring = 'sms://'+currentContact.phoneNumber;
-    console.log(currentContact.name);
-    if (currentContact.name){
+    if (currentContact.name && !currentContact.image){
+        //when the async function returns the name we get the initials of the contact to use as a temporary profile picture
         var names = currentContact.name.split(' ');
         var initials = '';
         for (var i= 0; i < names.length; i++){
@@ -77,6 +77,7 @@ export default function ContactScreen({route, navigation}) {
     return (
         <View style={styles.container}>
             <View style={styles.infocontainer}>
+                {/* if the contact has a photo display it, otherwise display their initials */}
                 {currentContact.image ?
                     <ThumbnailPhoto
                         image={currentContact.image}
