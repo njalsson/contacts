@@ -48,9 +48,28 @@ export default StyleSheet.create({
         top: 20,
         left: 20,
         fontWeight: 'bold',
-        // color: '#6C85DD',
         fontSize: 16,
     },
-    button: {
+
+    callbutton: {
+        backgroundColor: '#4BB543',
+
+        padding: 10,
+        borderRadius: 35,
+        borderWidth: 1,
+        borderColor: '#4BB543'
     },
+    smsbutton: {
+        backgroundColor: 'lightblue',
+        marginLeft: 40,
+
+        padding: 15,
+        borderRadius: 35,
+    },
+    buttons: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'row',   
+
+    }
 });

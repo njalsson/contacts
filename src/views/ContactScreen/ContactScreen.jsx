@@ -7,9 +7,13 @@ import { Ionicons } from '@expo/vector-icons';
 import * as fileService from '../../services/fileService';
 import { HeaderBackButton } from '@react-navigation/elements';
 import { roundToNearestPixel } from 'react-native/Libraries/Utilities/PixelRatio';
+import { MaterialIcons } from '@expo/vector-icons'; 
+
 
 export default function ContactScreen({route, navigation}) {
     const [currentContact, setCurrentContact] = useState({});
+    var phonenrstring = 'tel://'+currentContact.phoneNumber;
+    var smsstring = 'sms://'+currentContact.phoneNumber;
     
     
 
@@ -79,9 +83,18 @@ export default function ContactScreen({route, navigation}) {
                 <Text style={styles.mobileheader}>mobile</Text>
                 <Text style={styles.phonenr} onPress={()=>{Linking.openURL('tel://+354'+{phonenr});}}>{currentContact.phoneNumber}</Text>
             </View>
-            <TouchableOpacity style={styles.button} onPress={()=>{Linking.openURL(phonenrstring);}}>
-                <Ionicons name="ios-call" size={64} color="green" />
-            </TouchableOpacity>
+            <View style={styles.buttons}>
+                <TouchableOpacity style={styles.button} onPress={()=>{Linking.openURL(phonenrstring);}}>
+                    <View style={styles.callbutton}>
+                        <Ionicons name="ios-call" size={44} color='white'   />
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress={()=>{Linking.openURL(smsstring);}}>
+                    <View style={styles.smsbutton}>
+                        <MaterialIcons name="sms" size={44} color='white'   />
+                    </View>
+                </TouchableOpacity>
+            </View>
 
         </View>
     );
