@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
 import { StyleSheet, Text, View, Button, FlatList, TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
 
@@ -31,8 +31,6 @@ const ContactsScreen = ( { navigation, route }) => {
         (async () => {
             const loadedContacts = await fileService.getAllContacts();
             setContacts(loadedContacts);
-            //const phoneContacts = await contactService.getContactsFromPhone();
-            //console.log(phoneContacts);
             setSort(true);
 
         })();
@@ -43,7 +41,7 @@ const ContactsScreen = ( { navigation, route }) => {
         //Triggered when route params filename changes.
         if (route.params) {
 
-            const { fileName, action } = route.params;
+            const { fileName, action, id} = route.params;
             if (action == 'add') {
                 loadContact(fileName);
             }
@@ -55,9 +53,16 @@ const ContactsScreen = ( { navigation, route }) => {
             if (action == 'import') {
                 importContacts();
             }
-            route.params = undefined;
+            if (action == 'edit') {
+                onEditContact(fileName);
+            }
+            if (action == 'delete') {
+                onDeleteHandler(id);
+            }
+            route.params=undefined;
         }
     },[route.params]);
+
 
     useEffect(() => {
         if (sort) {
@@ -65,16 +70,18 @@ const ContactsScreen = ( { navigation, route }) => {
         }
     },[sort]);
 
+    const onDeleteHandler = async (id) => {
+        setContacts(contacts.filter(contact => contact.id !== id));
+    };
+
+    const onEditContact = async (fileName) => {
+        const newContact = await fileService.loadContact(fileName);
+        setContacts([...contacts.filter(contact => contact.id !== newContact.id), newContact]);
+        setSort(true);
+    };
 
     const importContacts = async () => {
         const newContacts = await contactService.getContactsFromPhone();
-        // const filtered = newContacts.filter(async (c) => {
-        //     if (!(contacts.some((contact) => contact.id === c.id))) { //check if the contact is already imported
-        //         console.log(contact.id);
-        //         console.log(c.id)
-        //         return await fileService.addContact(c);
-        //     }});
-        // console.log(filtered);
 
         const filtered = newContacts.filter(c => !(contacts.some(contact => contact.id == c.id)));
         filtered.forEach(async (co) => {await fileService.addContact(co);});
@@ -129,9 +136,7 @@ const ContactsScreen = ( { navigation, route }) => {
                     return (
                         <TouchableOpacity
                             onPress={() => navigation.navigate('Contact',{
-                                name: item.name,
-                                phonenr: item.phoneNumber,
-                                photo: item.image,
+                                fileName: item.fileName,
                             })}
                         >
                             <ContactItem

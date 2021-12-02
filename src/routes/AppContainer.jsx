@@ -8,6 +8,8 @@ import Contacts from '../views/ContactsScreen/ContactsScreen';
 import Contact from '../views/ContactScreen/ContactScreen';
 import AddContactModalScreen from '../views/AddContactModalScreen/AddContactModalScreen';
 import SettingsModalScreen from '../views/SettingsModalScreen/SettingsModalScreen';
+import EditContactModalScreen from '../views/EditContactModalScreen/EditContactModalScreen';
+
 export default function AppContainer() {
     return (
         <NavigationContainer>
@@ -23,10 +25,6 @@ export default function AppContainer() {
                     <Stack.Screen
                         name="Contact"
                         component={Contact}
-                        options={{
-                            title: false,
-                            headerRight: () => (<Button title="edit" />),
-                        }}
                     />
                 </Stack.Group>
                 <Stack.Group screenOptions={{presentation: 'modal'}}>
@@ -37,6 +35,10 @@ export default function AppContainer() {
                     <Stack.Screen
                         name="Settings"
                         component={SettingsModalScreen}
+                    />
+                    <Stack.Screen
+                        name="Edit contact"
+                        component={EditContactModalScreen}
                     />
                 </Stack.Group>
             </Stack.Navigator>

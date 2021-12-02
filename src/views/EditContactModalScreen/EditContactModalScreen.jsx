@@ -1,18 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import { Button,} from 'react-native';
-import PropTypes from 'prop-types';
+import { Button, } from 'react-native';
 
 import * as imageService from '../../services/imageService';
 import * as fileService from '../../services/fileService'; 
 import ModifyContact from '../../components/ModifyContact/ModifyContact';
+import { Children } from 'react';
 
 
-export default function AddContactModalScreen({ navigation }) {
+export default function EditContactModalScreen({ navigation, route }) {
     const [showAddPhoto, setShowAddPhoto] = useState(false);
-    const [inputs, setInputs] = useState({
-        'name': '',
-        'phoneNumber': '',
-    });
+    const [inputs, setInputs] = useState({});
+
+
+
+    const loadContact = async fileName => {
+        const currentContact = await fileService.loadContact(fileName);
+        setInputs(currentContact);
+    };
+
+    useEffect(() => {
+        const {fileName} = route.params;
+        loadContact(fileName);
+    },[]);
 
     const doneButton = () => {
         navigation.setOptions({headerRight: () => {return (
@@ -20,11 +29,10 @@ export default function AddContactModalScreen({ navigation }) {
                 disabled={inputs.name && inputs.phoneNumber ? false : true}
                 title="done"
                 onPress={async () => {
-                    const name = await fileService.addContact({
+                    const name = await fileService.editContact({
                         ...inputs,
-                        image: photo,
                     });
-                    navigation.navigate('Contacts', {fileName: name, action: "add"});
+                    navigation.navigate('Contact', {fileName: name, action: "edit"});
                 }}    
             />
         
@@ -35,7 +43,6 @@ export default function AddContactModalScreen({ navigation }) {
         doneButton();
     }, [inputs]);
 
-    const [photo, setPhoto] = useState('');
 
     const onInputHandler = (name, value) => {
         setInputs({
@@ -46,7 +53,7 @@ export default function AddContactModalScreen({ navigation }) {
     const takePhoto = async () => {
         const img = await imageService.takePhoto();
         if (img.length > 0) { 
-            setPhoto(img);
+            onInputHandler('image', img);
             setShowAddPhoto(false);
         }
     };
@@ -54,7 +61,7 @@ export default function AddContactModalScreen({ navigation }) {
     const selectFromCameraRoll = async () => {
         const img = await imageService.selectFromCameraRoll();
         if (img.length > 0) { 
-            setPhoto(img);
+            onInputHandler('image', img);
             setShowAddPhoto(false);
         }
 
@@ -65,16 +72,19 @@ export default function AddContactModalScreen({ navigation }) {
             setShowAddPhoto={setShowAddPhoto}
             onInputHandler={onInputHandler}
             inputs={inputs}
-            photo={photo}
-            setPhoto={setPhoto}
+            photo={inputs.image}
             showAddPhoto={showAddPhoto}
             takePhoto={takePhoto}
             selectFromCameraRoll={selectFromCameraRoll}
-        />
+        >
+            <Button
+                title="Delete contact"
+                color="red"
+                onPress={() => {
+                    fileService.remove(inputs.fileName);
+                    navigation.navigate('Contacts', {id: inputs.id, action: 'delete'});
+                }}/>
+        </ModifyContact>
     );
 }
 
-
-AddContactModalScreen.propTypes = {
-    navigation: PropTypes.object.isRequired,
-};

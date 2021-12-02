@@ -5,7 +5,7 @@ import BasicInput from '../BasicInput/BasicInput';
 import AddPhotoModal from '../AddPhotoModal/AddPhotoModal';
 import styles from './styles';
 export default function ModifyContact({
-    setShowAddPhoto, onInputHandler, inputs, photo, setPhoto, showAddPhoto, takePhoto, selectFromCameraRoll,
+    setShowAddPhoto, onInputHandler, inputs, photo, showAddPhoto, takePhoto, selectFromCameraRoll, children
 }) {
     return (
         <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === 'ios' ? 'padding' : 'height'} keyboardVerticalOffset={100}>
@@ -31,8 +31,8 @@ export default function ModifyContact({
                     placeholder="phone number"
                     value={inputs.phoneNumber}
                 />
-
             </View>
+            {children}
             {showAddPhoto ? 
                 (<AddPhotoModal
                     showModal={showAddPhoto}

@@ -38,12 +38,23 @@ export const addContact = async contact => {
     return filename;
 };
 
+export const editContact = async contact => {
+    await remove(contact.fileName);
+    return await addContact({...contact});
+};
+
+export const remove = async fileName => {
+    return await onException(() => FileSystem.deleteAsync(`${contactsDirectory}/${fileName}`, { idempotent: true }));
+};
+
 const setupDirectory = async () => {
     const dir = await FileSystem.getInfoAsync(contactsDirectory);
     if (!dir.exists) {
         await FileSystem.makeDirectoryAsync(contactsDirectory);
     }
 };
+
+
 
 export const loadContact = async fileName => {
     return JSON.parse(await onException(() => FileSystem.readAsStringAsync(`${contactsDirectory}/${fileName}`, {

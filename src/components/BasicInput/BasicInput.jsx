@@ -20,8 +20,8 @@ export default function BasicInput({onChange, value, placeholder}) {
     )
 }
 
-BasicInput.propTypes = {
-    onChange: PropTypes.func.isRequired,
-    value: PropTypes.string.isRequired,
-    placeholder: PropTypes.string.isRequired
-};
+// BasicInput.propTypes = {
+//     onChange: PropTypes.func.isRequired,
+//     value: PropTypes.string.isRequired,
+//     placeholder: PropTypes.string.isRequired
+// };
