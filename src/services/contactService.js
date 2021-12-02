@@ -6,6 +6,7 @@ export const getContactsFromPhone = async () => {
     const { status } = await Contacts.requestPermissionsAsync();
     if (status === 'granted') {
         const { data } = await Contacts.getContactsAsync();
+        console.log(data);
         if (data.length > 0) {
             if (Platform.OS === 'IOS') {
                 return Promise.all(data.map(async contact => {

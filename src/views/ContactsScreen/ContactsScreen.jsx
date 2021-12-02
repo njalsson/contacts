@@ -7,7 +7,7 @@ import * as contactService from '../../services/contactService';
 import ContactItem from '../../components/ContactItem/ContactItem';
 import SearchBar from '../../components/SearchBar/SearchBar';
 
-export default function ContactsScreen( { navigation, route }) {
+const ContactsScreen = ( { navigation, route }) => {
 
     const settingsButton = () => {
         navigation.setOptions({
@@ -121,6 +121,8 @@ export default function ContactsScreen( { navigation, route }) {
                 contacts={contacts}
             />
             <FlatList
+                style={{height: '100%'}}
+                contentContainerStyle={{alignItems: 'center'}}
                 data={searchText.length > 0 ? searchRes : contacts}
                 keyExtractor={item => item.id}
                 renderItem={({item}) => {
@@ -129,6 +131,7 @@ export default function ContactsScreen( { navigation, route }) {
                             onPress={() => navigation.navigate('Contact',{
                                 name: item.name,
                                 phonenr: item.phoneNumber,
+                                photo: item.image,
                             })}
                         >
                             <ContactItem
@@ -150,4 +153,6 @@ ContactsScreen.propTypes = {
     navigation: PropTypes.object.isRequired,
 };
 
+
+export default ContactsScreen;
 const styles = StyleSheet.create({});
