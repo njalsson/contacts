@@ -43,7 +43,7 @@ export default function ContactsScreen( { navigation, route }) {
     useEffect(()=> {
         //Triggered when route params filename changes.
         if (route.params) {
-            
+
             const { fileName, action } = route.params;
             if (action == 'add') {
                 loadContact(fileName);
@@ -78,8 +78,8 @@ export default function ContactsScreen( { navigation, route }) {
         // console.log(filtered);
 
         const filtered = newContacts.filter(c => !(contacts.some(contact => contact.id == c.id)));
-        filtered.forEach(async (co) => {await fileService.addContact(co)});
-        
+        filtered.forEach(async (co) => {await fileService.addContact(co);});
+
 
         setContacts([...contacts, ...filtered]);
         setSort(true);
@@ -127,7 +127,10 @@ export default function ContactsScreen( { navigation, route }) {
                 renderItem={({item}) => {
                     return (
                         <TouchableOpacity
-                            onPress={() => navigation.navigate('Contact')}
+                            onPress={() => navigation.navigate('Contact',{
+                                name: item.name,
+                                phonenr: item.phoneNumber,
+                            })}
                         >
                             <ContactItem
                                 name={item.name}
@@ -137,12 +140,9 @@ export default function ContactsScreen( { navigation, route }) {
                     );
                 }}
             >
-                
+
             </FlatList>
-            <Button
-                title="Checkout contact view"
-                onPress={() => { navigation.navigate('Contact');}}
-            />
+
         </View>
     );
 }
