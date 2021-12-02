@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, View, KeyboardAvoidingView} from 'react-native';
+import { Button, View, KeyboardAvoidingView, Platform} from 'react-native';
 import ThumbnailPhoto from '../ThumbnailPhoto/ThumbnailPhoto';
 import BasicInput from '../BasicInput/BasicInput';
 import AddPhotoModal from '../AddPhotoModal/AddPhotoModal';

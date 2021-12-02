@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Button, FlatList, TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
 
-import * as Contacts from 'expo-contacts';
 import * as fileService from '../../services/fileService';
 import * as contactService from '../../services/contactService';
 import ContactItem from '../../components/ContactItem/ContactItem';
