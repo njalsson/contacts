@@ -4,7 +4,8 @@ import { color } from 'react-native/Libraries/Components/View/ReactNativeStyleAt
 import styles from './styles';
 
 
-export default function ContactScreen() {
+export default function ContactScreen({route, navigation}) {
+    const { name, phonenr } = route.params;
     return (
         <View style={styles.container}>
 
@@ -12,15 +13,14 @@ export default function ContactScreen() {
                 source={ require('./l60Hf.png') }
 
             />
-            <Text style={styles.name}>Daníel Freyr Gylfason</Text>
+          <Text style={styles.name}>{name}</Text>
             <View style={styles.mobile}>
                 <Text style={styles.mobileheader}>mobile</Text>
-                <Text style={styles.phonenr} onPress={()=>{Linking.openURL('tel://+3548660115');}}>866-0115</Text>
-                <TouchableOpacity style={styles.button} onPress={()=>{Linking.openURL('tel://+3548660115');}}>
+                <Text style={styles.phonenr} onPress={()=>{Linking.openURL('tel://+354'+{phonenr});}}>{phonenr}</Text>
+                <TouchableOpacity style={styles.button} onPress={()=>{Linking.openURL('tel://+354'+{phonenr});}}>
                     <Text>Call </Text>
                 </TouchableOpacity>
             </View>
         </View>
     );
 }
-
