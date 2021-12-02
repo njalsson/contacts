@@ -33,14 +33,12 @@ export default StyleSheet.create({
         justifyContent: 'center',
         borderWidth: 1,
         borderColor: 'lightgrey',
-        // justifyContent: 'flex-start',
         height: 50,
         width: 50,
         borderRadius: 50,
     },
     noimageletter: {
         fontSize: 20,
-        // fontWeight: 'bold'
     }
 
 });

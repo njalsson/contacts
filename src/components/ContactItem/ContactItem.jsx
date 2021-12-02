@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { Text, View, TouchableWithoutFeedback } from 'react-native';
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { Text, View } from 'react-native';
 import styles from './style';
 import ThumbnailPhoto from '../ThumbnailPhoto/ThumbnailPhoto';
 
@@ -7,7 +8,9 @@ export default function ContactItem({name, image}) {
     var names = name.split(' ');
     var initials = '';
     for (var i= 0; i < names.length; i++){
-initials += names[i][0];
+        if (names[i].length > 0){
+            initials += names[i][0];
+        }
     }
     
     if (image) {

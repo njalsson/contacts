@@ -1,3 +1,4 @@
+/* eslint-disable no-control-regex */
 import * as FileSystem from 'expo-file-system';
 import uuid from 'react-native-uuid';
 
@@ -20,7 +21,7 @@ export const cleanDirectory = async () => {
 };
 
 const cleanName = name => {
-    return name.replace(/[^\x00-\x7F]/g, "").replace(/[' ']/g, "_");
+    return name.replace(/[^\x00-\x7F]/g, '').replace(/[' ']/g, '_');
 };
 
 export const addContact = async contact => {
@@ -69,4 +70,4 @@ export const getAllContacts = async () => {
     return Promise.all(result.map(async fileName => {
         return await loadContact(fileName);
     }));
-}
+};

@@ -1,12 +1,11 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, Linking, Button } from 'react-native';
-import { color } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
+import {  Text, View, TouchableOpacity, Linking, Button } from 'react-native';
 import styles from './styles';
 import ThumbnailPhoto from '../../components/ThumbnailPhoto/ThumbnailPhoto';
 import { Ionicons } from '@expo/vector-icons'; 
 import * as fileService from '../../services/fileService';
 import { HeaderBackButton } from '@react-navigation/elements';
-import { roundToNearestPixel } from 'react-native/Libraries/Utilities/PixelRatio';
 import { MaterialIcons } from '@expo/vector-icons'; 
 
 
@@ -19,7 +18,9 @@ export default function ContactScreen({route, navigation}) {
         var names = currentContact.name.split(' ');
         var initials = '';
         for (var i= 0; i < names.length; i++){
-            initials += names[i][0];
+            if (names[i].length > 0){
+                initials += names[i][0];
+            }
         }}
     
     

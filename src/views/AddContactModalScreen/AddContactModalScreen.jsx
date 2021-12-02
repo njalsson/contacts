@@ -24,7 +24,7 @@ export default function AddContactModalScreen({ navigation }) {
                         ...inputs,
                         image: photo,
                     });
-                    navigation.navigate('Contacts', {fileName: name, action: "add"});
+                    navigation.navigate('Contacts', {fileName: name, action: 'add'});
                 }}    
             />
         

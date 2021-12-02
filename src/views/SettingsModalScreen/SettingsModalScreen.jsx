@@ -1,5 +1,6 @@
-import React from 'react'
-import { StyleSheet, Text, View, Button} from 'react-native'
+/* eslint-disable react/prop-types */
+import React from 'react';
+import {  View, Button} from 'react-native';
 import styles from './styles';
 import * as fileService from '../../services/fileService';
 
@@ -10,13 +11,13 @@ export default function SettingsModalScreen({ navigation }) {
                 title="delete all contacts"
                 onPress={() => {
                     fileService.cleanDirectory();
-                    navigation.navigate('Contacts', {action: "clean"});
+                    navigation.navigate('Contacts', {action: 'clean'});
                 }}
             />
             <Button
                 title="import contacts from phone"
                 onPress={() => {
-                    navigation.navigate('Contacts', {action: "import"});
+                    navigation.navigate('Contacts', {action: 'import'});
                 }}    
             />
         </View>

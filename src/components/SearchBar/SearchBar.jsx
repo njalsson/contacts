@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react'
-import { StyleSheet, TextInput, View } from 'react-native'
+/* eslint-disable react/prop-types */
+import React from 'react';
+import {  TextInput, View } from 'react-native';
 import styles from './styles';
 
 export default function SearchBar({
-    setSearchRes, SearchRes, searchText, setSearchText, compareFunc, contacts
+    setSearchRes, searchText, setSearchText, compareFunc, contacts
 
 
 
@@ -23,6 +24,6 @@ export default function SearchBar({
                 }}
             />
         </View>
-    )
+    );
 }
 
