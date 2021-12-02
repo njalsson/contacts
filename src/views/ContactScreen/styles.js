@@ -79,6 +79,21 @@ export default StyleSheet.create({
         borderBottomColor: 'rgba(255,0,0,0.0)',
         borderLeftColor: 'lightgrey',
 
+    },
+    noimage: {
+        backgroundColor: 'lightblue',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderWidth: 1,
+        borderColor: 'lightgrey',
+        // justifyContent: 'flex-start',
+        height: 128, 
+        width: 128, 
+        borderRadius: 100
+    },
+    noimageletter: {
+        fontSize: 50,
+        // fontWeight: 'bold'
     }
 
 });

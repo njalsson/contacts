@@ -24,7 +24,23 @@ export default StyleSheet.create({
     },
     name: {
         width: '85%',
-        fontSize: 17
+        fontSize: 17,
+        marginLeft: 10
     },
+    noimage: {
+        backgroundColor: 'lightblue',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderWidth: 1,
+        borderColor: 'lightgrey',
+        // justifyContent: 'flex-start',
+        height: 50,
+        width: 50,
+        borderRadius: 50,
+    },
+    noimageletter: {
+        fontSize: 20,
+        // fontWeight: 'bold'
+    }
 
 });
