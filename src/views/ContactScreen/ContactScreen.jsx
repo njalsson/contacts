@@ -7,6 +7,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 export default function ContactScreen({route, navigation}) {
     const { name, phonenr, photo } = route.params;
+    var phonenrstring = 'tel://+354'+phonenr;
     return (
         <View style={styles.container}>
             <View style={styles.infocontainer}>
@@ -21,9 +22,9 @@ export default function ContactScreen({route, navigation}) {
             
             <View style={styles.mobile}>
                 <Text style={styles.mobileheader}>mobile</Text>
-                <Text style={styles.phonenr} onPress={()=>{Linking.openURL('tel://+354'+{phonenr});}}>{phonenr}</Text>
+                <Text style={styles.phonenr} onPress={()=>{Linking.openURL(phonenrstring);}}>{phonenr}</Text>
             </View>
-            <TouchableOpacity style={styles.button} onPress={()=>{Linking.openURL('tel://+354'+{phonenr});}}>
+            <TouchableOpacity style={styles.button} onPress={()=>{Linking.openURL(phonenrstring);}}>
                 <Ionicons name="ios-call" size={64} color="green" />
             </TouchableOpacity>
 
