@@ -36,8 +36,10 @@ export default StyleSheet.create({
         height: 50,
         width: 50,
         borderRadius: 50,
+        overflow: 'hidden',
     },
     noimageletter: {
+        flexWrap: 'wrap',
         fontSize: 20,
     }
 

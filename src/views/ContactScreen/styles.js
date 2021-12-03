@@ -88,7 +88,8 @@ export default StyleSheet.create({
         borderColor: 'lightgrey',
         height: 128, 
         width: 128, 
-        borderRadius: 100
+        borderRadius: 100,
+        overflow: 'hidden',
     },
     noimageletter: {
         fontSize: 40,
